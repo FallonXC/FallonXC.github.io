@@ -144,36 +144,36 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Viewer设置"><a href="#Viewer设置" class="headerlink" title="Viewer设置"></a>Viewer设置</h2><pre class="line-numbers language-vue"><code class="language-vue">window.machineMap = new Cesium.Viewer("machineMap", &#123;
-  shadows: true, //确定阴影是否由太阳投射形成。
-  sceneModePicker: false, //获取场景模式拾取器(SceneModePicker)对象。
-  infoBox: false, //获取信息框(InfoBox)对象。
-  shouldAnimate: true,
-  skyAtmosphere: false, //环绕地球边缘的蓝天和光晕效果，设置为false可将其关闭。
-  selectionIndicator: false, //获取选择指示符(SelectionIndicator)对象。
-  navigation: true, //获取导航帮助按钮(NavigationHelpButton)对象。
-  skyBox: new Cesium.SkyBox(&#123;
-    //用于渲染星辰的天空盒，未定义时，使用默认星辰效果。
-    sources: &#123;
-      positiveX: require("@/assets/img/lt/rightav9.jpg"),
-      negativeX: require("@/assets/img/lt/leftav9.jpg"),
-      positiveY: require("@/assets/img/lt/frontav9.jpg"),
-      negativeY: require("@/assets/img/lt/backav9.jpg"),
-      positiveZ: require("@/assets/img/lt/topav9.jpg"),
-      negativeZ: require("@/assets/img/lt/bottomav9.jpg"),
-    &#125;,
-  &#125;),
-&#125;);
+<h2 id="Viewer设置"><a href="#Viewer设置" class="headerlink" title="Viewer设置"></a>Viewer设置</h2><pre class="line-numbers language-javascript"><code class="language-javascript">window<span class="token punctuation">.</span>machineMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Viewer</span><span class="token punctuation">(</span><span class="token string">"machineMap"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  shadows<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//确定阴影是否由太阳投射形成。</span>
+  sceneModePicker<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取场景模式拾取器(SceneModePicker)对象。</span>
+  infoBox<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取信息框(InfoBox)对象。</span>
+  shouldAnimate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  skyAtmosphere<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//环绕地球边缘的蓝天和光晕效果，设置为false可将其关闭。</span>
+  selectionIndicator<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取选择指示符(SelectionIndicator)对象。</span>
+  navigation<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取导航帮助按钮(NavigationHelpButton)对象。</span>
+  skyBox<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>SkyBox</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//用于渲染星辰的天空盒，未定义时，使用默认星辰效果。</span>
+    sources<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      positiveX<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/rightav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      negativeX<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/leftav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      positiveY<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/frontav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      negativeY<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/backav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      positiveZ<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/topav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      negativeZ<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/bottomav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="相机设置"><a href="#相机设置" class="headerlink" title="相机设置"></a>相机设置</h2><pre class="line-numbers language-vue"><code class="language-vue">scene.camera.setView(&#123;
-  // 将经度、纬度、高度的坐标转换为笛卡尔坐标
-  destination: Cesium.Cartesian3.fromDegrees(116.773446, 23.471069, 4632),
-  orientation: &#123;
-    heading: 0.29510551037694466, // 相机的方向，单位是弧度，默认朝北
-    pitch: -0.677166982317591,    // 相机的俯仰角度，单位是弧度，默认是朝下
-    roll: 6.283185307179586,      // 相机的滚动角度，单位是弧度，默认是0
-  &#125;,
-&#125;);
+<h2 id="相机设置"><a href="#相机设置" class="headerlink" title="相机设置"></a>相机设置</h2><pre class="line-numbers language-javascript"><code class="language-javascript">scene<span class="token punctuation">.</span>camera<span class="token punctuation">.</span><span class="token function">setView</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 将经度、纬度、高度的坐标转换为笛卡尔坐标</span>
+  destination<span class="token punctuation">:</span> Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">116.773446</span><span class="token punctuation">,</span> <span class="token number">23.471069</span><span class="token punctuation">,</span> <span class="token number">4632</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  orientation<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    heading<span class="token punctuation">:</span> <span class="token number">0.29510551037694466</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 相机的方向，单位是弧度，默认朝北</span>
+    pitch<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">0.677166982317591</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 相机的俯仰角度，单位是弧度，默认是朝下</span>
+    roll<span class="token punctuation">:</span> <span class="token number">6.283185307179586</span><span class="token punctuation">,</span>      <span class="token comment" spellcheck="true">// 相机的滚动角度，单位是弧度，默认是0</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="加载影像"><a href="#加载影像" class="headerlink" title="加载影像"></a>加载影像</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">loadTDT</span><span class="token punctuation">(</span>viewer<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">let</span> tdtUrl <span class="token operator">=</span> <span class="token string">"https://t&amp;#123;s&amp;#125;.tianditu.gov.cn/"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 天地图</span>
@@ -213,14 +213,20 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
   
 
      
-        <a href="/2023/09/27/projects/project1/" class="btn btn-outline-secondary btn-sm float-start">
+        <a href="/2023/09/27/three.js%20%E6%B5%8B%E8%B7%9D%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="btn btn-outline-secondary btn-sm float-start">
             <small>
-                < 上一篇：项目1
+                < 上一篇：three.js 测距功能实现
             </small>
         </a>
      
 
 
+     
+        <a href="/2023/09/13/vue%E5%AF%BC%E5%87%BAexcel%E3%80%81txt%E3%80%81csv%E6%96%87%E4%BB%B6/" class="btn btn-outline-secondary btn-sm float-end" >
+            <small>
+                下一篇：vue导出excel、txt、csv文件 >
+            </small>
+        </a>
      
 </div>
  
@@ -247,13 +253,18 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
             </a>
             
              
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
             <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
                 Cesium <span class="badge bg-secondary float-end m-1">1</span>
             </a>
             
              
-            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
-                esri <span class="badge bg-secondary float-end m-1">1</span>
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue/ ">
+                vue <span class="badge bg-secondary float-end m-1">1</span>
             </a>
               
         </ul>
@@ -281,6 +292,11 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
             </a>
         
              
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%A4%BA%E4%BE%8B/ ">
+                示例 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
             <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E5%8A%9F%E8%83%BD/ ">
                 功能 <span class="badge bg-secondary float-end m-1">3</span>
             </a>
@@ -300,12 +316,17 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
             
             
                 <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
-                    <small> Cesium 功能实现 </small>
+                    <small> three.js gltf 模型转换为three.points点云模型 </small>
                 </a>
             
             
                 <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
-                    <small> three.js gltf 模型转换为three.points点云模型 </small>
+                    <small> 项目1 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Cesium 功能实现 </small>
                 </a>
             
             
@@ -315,7 +336,7 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
             
             
                 <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
-                    <small> 项目1 </small>
+                    <small> vue导出excel、txt、csv文件 </small>
                 </a>
              
         </ul>
@@ -337,6 +358,10 @@ credit<span class="token punctuation">.</span>container<span class="token punctu
             
                 <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
                     <small>Hexo</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>bilibili</small>
                 </a>
              
         </ul>
