@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smileyan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 pt-3 pb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/ ">
+            FallonXu
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/">
+            <i class="fa fa-home "> </i> 主页
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/project">
+            <i class="bi bi-collection "> </i> 项目
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/archives">
+            <i class="fa fa-archive "> </i> 归档
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+  
+            </ul>
+
+             
+            <form class="d-flex">
+                <button class="btn text-muted fa fa-search" disabled></button>
+                <input id="local-search-input" class="form-control me-2 pe-4" type="search"
+                        placeholder="搜索" aria-label="Search">
+            </form>
+            
+
+            <ul class="navbar-nav">
+                <!-- 
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+   -->
+                <li class="nav-item">
+                    <img src="/img/head.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="container">
+        <div class="row pt-3">
+            <!-- 文章 -->
+            <div class="col-8">
+                <!-- 博客详情 -->
+<h2>three.js 测距功能实现</h2>
+<p>2023/09/27 17:34:00 </p>
+<p>three.js 测距功能实现</p>
+<h1 id="three-js-测距功能实现"><a href="#three-js-测距功能实现" class="headerlink" title="three.js 测距功能实现"></a>three.js 测距功能实现</h1><h2 id="背景需求"><a href="#背景需求" class="headerlink" title="背景需求"></a>背景需求</h2><ol>
+<li>对三维模型进行测距；</li>
+<li>共两个按钮：测距、清空；</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ol>
+<li><p>html设置</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span> <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">;</span> <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">80</span>px</span><span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>measureDis<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>测距<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span> <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">;</span> <span class="token property">right</span><span class="token punctuation">:</span> <span class="token number">5</span>px</span><span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clearDraw()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>清除<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-button</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>data设置</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      raycaster<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Raycaster</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      mouse<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Vector2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      group<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Group</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      labelRenderer<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">CSS2DRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      groups<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      points<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      line<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+      measuring<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>init初始化函数</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//普通2D标签</span>
+    <span class="token keyword">let</span> contain <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"container"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 获取three.js的显示框id</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>contain<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">,</span> contain<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 设置three.js的显示框大小</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span>domElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">"absolute"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 设置three.js的显示框位置</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span>domElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token string">"8%"</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span>domElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token string">"1%"</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span>domElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>pointerEvents <span class="token operator">=</span> <span class="token string">"none"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 避免HTML标签遮挡三维场景的鼠标事件</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span>domElement<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 将labelRenderer添加到文档主体</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>render标签渲染</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>scene<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>camera<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>mounted设置</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"resize"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onWindowResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 监测click</span>
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>measuring<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">onclick</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>scene<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>group<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>methods设置</p>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 窗口大小改变时更新的渲染器和相机，保持渲染画面的正确</span>
+<span class="token function">onWindowResize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> newWidth <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> newHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>camera<span class="token punctuation">.</span>aspect <span class="token operator">=</span> newWidth <span class="token operator">/</span> newHeight<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>camera<span class="token punctuation">.</span><span class="token function">updateProjectionMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span>newWidth<span class="token punctuation">,</span> newHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token comment" spellcheck="true">// click捕捉函数</span>
+<span class="token function">onclick</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 获取鼠标点击的坐标</span>
+    <span class="token keyword">const</span> mouseX <span class="token operator">=</span> event<span class="token punctuation">.</span>clientX<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> mouseY <span class="token operator">=</span> event<span class="token punctuation">.</span>clientY<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 获取three.js场景的容器</span>
+    <span class="token keyword">let</span> container <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"container"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将鼠标坐标转换为Three.js坐标系中的位置</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>mouseX <span class="token operator">-</span> container<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token operator">/</span> container<span class="token punctuation">.</span>offsetWidth<span class="token punctuation">)</span> <span class="token operator">*</span><span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>mouse<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token operator">-</span><span class="token punctuation">(</span><span class="token punctuation">(</span>mouseY <span class="token operator">-</span> container<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>top<span class="token punctuation">)</span> <span class="token operator">/</span> container<span class="token punctuation">.</span>offsetHeight<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 设置穿透的射线</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>raycaster<span class="token punctuation">.</span>params<span class="token punctuation">.</span>Points<span class="token punctuation">.</span>threshold <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>raycaster<span class="token punctuation">.</span><span class="token function">setFromCamera</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>mouse<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>camera<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 获取射线和场景中对象的交点</span>
+    <span class="token keyword">const</span> intersects <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>raycaster<span class="token punctuation">.</span><span class="token function">intersectObjects</span><span class="token punctuation">(</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>scene<span class="token punctuation">.</span>children<span class="token punctuation">,</span>
+        <span class="token boolean">false</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如果存在多个交点数则取第一个</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>intersects<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> point <span class="token operator">=</span> intersects<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>point<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addPoint</span><span class="token punctuation">(</span>point<span class="token punctuation">.</span>x<span class="token punctuation">,</span> point<span class="token punctuation">.</span>y<span class="token punctuation">,</span> point<span class="token punctuation">.</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token function">addPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 创建点对象</span>
+    <span class="token keyword">const</span> point <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 一个为场景对象</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>group<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>groups<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>group<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment" spellcheck="true">// 将点的坐标保存到数组中</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Vector3</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 更新测量线</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">updateMeasurementLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token function">updateMeasurementLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 创建线的几何体和材质</span>
+        <span class="token keyword">const</span> lineGeometry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>BufferGeometry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setFromPoints</span><span class="token punctuation">(</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>points
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> lineMaterial <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>LineBasicMaterial</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            color<span class="token punctuation">:</span> <span class="token number">0xf9f8ed</span><span class="token punctuation">,</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 创建线对象</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>line<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>line <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Line</span><span class="token punctuation">(</span>lineGeometry<span class="token punctuation">,</span> lineMaterial<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>group<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>groups<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//   this.line.geometry.dispose();</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>line<span class="token punctuation">.</span>geometry <span class="token operator">=</span> lineGeometry<span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 计算距离并显示在界面上</span>
+        <span class="token keyword">const</span> distance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">distanceTo</span><span class="token punctuation">(</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`距离: $&amp;#123;distance&amp;#125;`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// 添加CSS 2DObject标签</span>
+        <span class="token comment" spellcheck="true">// 求中点坐标</span>
+        <span class="token keyword">let</span> centerX <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> centerY <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> centerZ <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>z <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>z<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        
+        <span class="token comment" spellcheck="true">//创建标签</span>
+        <span class="token keyword">const</span> container <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"container"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> earthDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        earthDiv<span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">"label_name"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 定义的类名可以通过下面的style进行设置样式</span>
+        earthDiv<span class="token punctuation">.</span>textContent <span class="token operator">=</span> distance<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" m"</span><span class="token punctuation">;</span>
+        earthDiv<span class="token punctuation">.</span>style<span class="token punctuation">.</span>marginTop <span class="token operator">=</span> <span class="token string">"-1em"</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> label2D <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CSS2DObject</span><span class="token punctuation">(</span>earthDiv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        label2D<span class="token punctuation">.</span>name <span class="token operator">=</span> distance<span class="token punctuation">.</span><span class="token function">toFixed</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        label2D<span class="token punctuation">.</span>position<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>centerX<span class="token punctuation">,</span> centerY<span class="token punctuation">,</span> centerZ<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//标签标注在obj世界坐标</span>
+        container<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>label2D<span class="token punctuation">.</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>group<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>label2D<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//标签插入场景</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>groups<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>label2D<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">// this.labelRenderer.scene.add(label2D);</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>labelRenderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>scene<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>camera<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token function">measureDis</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>measuring <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>measuring<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token function">clearDraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>scene<span class="token punctuation">.</span>children<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 移除this.groups中保存的所有对象</span>
+    <span class="token comment" spellcheck="true">// 注：不直接使用this.scene.children进行遍历，是因为遍历结果不全面无法得到页面所有Mesh有待商催</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>groups<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>object<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">"Mesh"</span> <span class="token operator">||</span> object<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">"Line"</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>object<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 释放几何体和样式资源</span>
+            object<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            object<span class="token punctuation">.</span>material<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>group<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>object<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">"Line"</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>line <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// let label = this.scene.getObjectByName(object.name);</span>
+            object<span class="token punctuation">.</span>parent<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>points <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>measuring <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>measuring<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span class="token function">createPoint</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">,</span> config <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> color<span class="token punctuation">:</span> <span class="token number">0xf9f8ed</span><span class="token punctuation">,</span> size<span class="token punctuation">:</span> <span class="token number">0.8</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> mat <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>MeshBasicMaterial</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        color<span class="token punctuation">:</span> config<span class="token punctuation">.</span>color <span class="token operator">||</span> <span class="token number">0xf9f8ed</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> sphereGeometry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>SphereGeometry</span><span class="token punctuation">(</span>config<span class="token punctuation">.</span>size <span class="token operator">||</span> <span class="token number">0.3</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> sphere <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Mesh</span><span class="token punctuation">(</span>sphereGeometry<span class="token punctuation">,</span> mat<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sphere<span class="token punctuation">.</span>position<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sphere<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>style设置</p>
+<pre class="line-numbers language-css"><code class="language-css"><span class="token number">.</span>label_name &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#f9f8ed</span><span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">16</span>px<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">9999</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li></li>
+</ol>
+ 
+
+<div class="p-2 pe-4">
+  
+
+     
+        <a href="/2023/09/28/three.js%20gltf%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BApoints/" class="btn btn-outline-secondary btn-sm float-start">
+            <small>
+                < 上一篇：three.js gltf 模型转换为three.points点云模型
+            </small>
+        </a>
+     
+
+
+     
+        <a href="/2023/09/27/projects/project1/" class="btn btn-outline-secondary btn-sm float-end" >
+            <small>
+                下一篇：项目1 >
+            </small>
+        </a>
+     
+</div>
+ 
+                <!-- 分页 -->
+
+            </div>
+    
+            <!-- sidebar -->
+            <div class="col-4 position-sticky">
+                <div class="border-start ps-3 pb-3 pt-3">
+    
+        <!-- 侧边栏 分类 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-folder-open"></i> 分类
+        
+    </h6>
+    <div class="card-body">
+        <ul class="list-group border-0">
+            
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/three-js/ ">
+                three.js <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
+                Cesium <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+              
+        </ul>
+
+        <ul class="list-group border-0 collapse" id="category">
+            
+        </ul>
+    </div>
+</div>
+
+ 
+    
+        <!-- 侧边栏 标签 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-tag"></i> 标签
+        
+    </h6>
+
+    <div class="card-body tag-hover">
+        
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%A1%B9%E7%9B%AE/ ">
+                项目 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E5%8A%9F%E8%83%BD/ ">
+                功能 <span class="badge bg-secondary float-end m-1">3</span>
+            </a>
+          
+
+        <span id="tags" class="collapse">
+            
+        </span>
+    </div>
+</div>
+ 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-clock-o"></i> 最近文章</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Cesium 功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> three.js gltf 模型转换为three.points点云模型 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> three.js 测距功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> 项目1 </small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-link"></i> 友情链接</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://so.csdn.net/ ">
+                    <small>csdn</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://github.com/ ">
+                    <small>GitHub</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>Hexo</small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+
+</div> 
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark pt-2 pb-0 mt-5">
+    <div class="container pb-3 pt-3 text-center">
+        <p class="text-muted tag-hover"> © 2023 个人博客 个人网站 
+            <br>
+            <a class="link-secondary text-decoration-none" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">
+                 
+            </a>
+        </p>
+    </div>
+</footer> 
+</body>
+
+</html>

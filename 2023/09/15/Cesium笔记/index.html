@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smileyan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 pt-3 pb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/ ">
+            FallonXu
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/">
+            <i class="fa fa-home "> </i> 主页
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/project">
+            <i class="bi bi-collection "> </i> 项目
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/archives">
+            <i class="fa fa-archive "> </i> 归档
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+  
+            </ul>
+
+             
+            <form class="d-flex">
+                <button class="btn text-muted fa fa-search" disabled></button>
+                <input id="local-search-input" class="form-control me-2 pe-4" type="search"
+                        placeholder="搜索" aria-label="Search">
+            </form>
+            
+
+            <ul class="navbar-nav">
+                <!-- 
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+   -->
+                <li class="nav-item">
+                    <img src="/img/head.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="container">
+        <div class="row pt-3">
+            <!-- 文章 -->
+            <div class="col-8">
+                <!-- 博客详情 -->
+<h2>Cesium 功能实现</h2>
+<p>2023/09/15 16:19:43 </p>
+<p>Cesium 基础功能实现：初始化、加载影像</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><pre class="line-numbers language-javascript"><code class="language-javascript">Cesium<span class="token punctuation">.</span>Context<span class="token punctuation">.</span>memoryThreshold <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//设置GPU内存阈值为8MB,当GPU内存使用超过这个阈值时，Cesium将开始执行一些优化策略，以降低内存使用并提高性能。</span>
+<span class="token comment" spellcheck="true">//地图将被嵌入到具有ID为machineMap的DOM元素中</span>
+window<span class="token punctuation">.</span>machineMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Viewer</span><span class="token punctuation">(</span><span class="token string">"machineMap"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  shadows<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//确定阴影是否由太阳投射形成。</span>
+  sceneModePicker<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取场景模式拾取器(SceneModePicker)对象。</span>
+  infoBox<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取信息框(InfoBox)对象。</span>
+  shouldAnimate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  skyAtmosphere<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//环绕地球边缘的蓝天和光晕效果，设置为false可将其关闭。</span>
+  selectionIndicator<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取选择指示符(SelectionIndicator)对象。</span>
+  navigation<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//获取导航帮助按钮(NavigationHelpButton)对象。</span>
+  skyBox<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>SkyBox</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//用于渲染星辰的天空盒，未定义时，使用默认星辰效果。</span>
+    sources<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      positiveX<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/rightav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      negativeX<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/leftav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      positiveY<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/frontav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      negativeY<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/backav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      positiveZ<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/topav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      negativeZ<span class="token punctuation">:</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"@/assets/img/lt/bottomav9.jpg"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> scene <span class="token operator">=</span> window<span class="token punctuation">.</span>machineMap<span class="token punctuation">.</span>scene<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取场景(scene)对象，包含了地图中的三维场景元素和功能</span>
+<span class="token keyword">let</span> widget <span class="token operator">=</span> window<span class="token punctuation">.</span>machineMap<span class="token punctuation">.</span>cesiumWidget<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取CesiumWidget对象，用于渲染地图的核心部分</span>
+<span class="token keyword">let</span> credit <span class="token operator">=</span> window<span class="token punctuation">.</span>machineMap<span class="token punctuation">.</span>scene<span class="token punctuation">.</span>frameState<span class="token punctuation">.</span>creditDisplay<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于显示地图上的信用标识的对象</span>
+credit<span class="token punctuation">.</span>container<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>credit<span class="token punctuation">.</span>_imageContainer<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从信用标识容器中移除了图像容器，通常是地图底部显示的Cesium图标和文本，即去掉cesium水印</span>
+
+<span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"开启无人机地图"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 设置相机位置，定位至模型</span>
+  scene<span class="token punctuation">.</span>camera<span class="token punctuation">.</span><span class="token function">setView</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 将经度、纬度、高度的坐标转换为笛卡尔坐标</span>
+    destination<span class="token punctuation">:</span> Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">116.773446</span><span class="token punctuation">,</span> <span class="token number">23.471069</span><span class="token punctuation">,</span> <span class="token number">4632</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    orientation<span class="token punctuation">:</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      heading<span class="token punctuation">:</span> <span class="token number">0.29510551037694466</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 相机的方向，单位是弧度，默认朝北</span>
+      pitch<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">0.677166982317591</span><span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">// 相机的俯仰角度，单位是弧度，默认是朝下</span>
+      roll<span class="token punctuation">:</span> <span class="token number">6.283185307179586</span><span class="token punctuation">,</span>      <span class="token comment" spellcheck="true">// 相机的滚动角度，单位是弧度，默认是0</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>widget<span class="token punctuation">.</span>_showRenderLoopErrors<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> title <span class="token operator">=</span> <span class="token string">"渲染时发生错误，已停止渲染。"</span><span class="token punctuation">;</span>
+    widget<span class="token punctuation">.</span><span class="token function">showErrorPanel</span><span class="token punctuation">(</span>title<span class="token punctuation">,</span> undefined<span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Viewer设置"><a href="#Viewer设置" class="headerlink" title="Viewer设置"></a>Viewer设置</h2><pre class="line-numbers language-vue"><code class="language-vue">window.machineMap = new Cesium.Viewer("machineMap", &#123;
+  shadows: true, //确定阴影是否由太阳投射形成。
+  sceneModePicker: false, //获取场景模式拾取器(SceneModePicker)对象。
+  infoBox: false, //获取信息框(InfoBox)对象。
+  shouldAnimate: true,
+  skyAtmosphere: false, //环绕地球边缘的蓝天和光晕效果，设置为false可将其关闭。
+  selectionIndicator: false, //获取选择指示符(SelectionIndicator)对象。
+  navigation: true, //获取导航帮助按钮(NavigationHelpButton)对象。
+  skyBox: new Cesium.SkyBox(&#123;
+    //用于渲染星辰的天空盒，未定义时，使用默认星辰效果。
+    sources: &#123;
+      positiveX: require("@/assets/img/lt/rightav9.jpg"),
+      negativeX: require("@/assets/img/lt/leftav9.jpg"),
+      positiveY: require("@/assets/img/lt/frontav9.jpg"),
+      negativeY: require("@/assets/img/lt/backav9.jpg"),
+      positiveZ: require("@/assets/img/lt/topav9.jpg"),
+      negativeZ: require("@/assets/img/lt/bottomav9.jpg"),
+    &#125;,
+  &#125;),
+&#125;);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="相机设置"><a href="#相机设置" class="headerlink" title="相机设置"></a>相机设置</h2><pre class="line-numbers language-vue"><code class="language-vue">scene.camera.setView(&#123;
+  // 将经度、纬度、高度的坐标转换为笛卡尔坐标
+  destination: Cesium.Cartesian3.fromDegrees(116.773446, 23.471069, 4632),
+  orientation: &#123;
+    heading: 0.29510551037694466, // 相机的方向，单位是弧度，默认朝北
+    pitch: -0.677166982317591,    // 相机的俯仰角度，单位是弧度，默认是朝下
+    roll: 6.283185307179586,      // 相机的滚动角度，单位是弧度，默认是0
+  &#125;,
+&#125;);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="加载影像"><a href="#加载影像" class="headerlink" title="加载影像"></a>加载影像</h2><pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">loadTDT</span><span class="token punctuation">(</span>viewer<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> tdtUrl <span class="token operator">=</span> <span class="token string">"https://t&amp;#123;s&amp;#125;.tianditu.gov.cn/"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 天地图</span>
+  <span class="token keyword">let</span> subdomains <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"0"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"2"</span><span class="token punctuation">,</span> <span class="token string">"3"</span><span class="token punctuation">,</span> <span class="token string">"4"</span><span class="token punctuation">,</span> <span class="token string">"5"</span><span class="token punctuation">,</span> <span class="token string">"6"</span><span class="token punctuation">,</span> <span class="token string">"7"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 如果node.mapid不为null，则从viewer的imageryLayers中移除该ID对应的图层。</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>mapid <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> viewer<span class="token punctuation">.</span>imageryLayers<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>mapid<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 向viewer的imageryLayers添加一个新的影像提供者，并将其ID赋值给node.mapid</span>
+  node<span class="token punctuation">.</span>mapid <span class="token operator">=</span> viewer<span class="token punctuation">.</span>imageryLayers<span class="token punctuation">.</span><span class="token function">addImageryProvider</span><span class="token punctuation">(</span>
+    <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>UrlTemplateImageryProvider</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      url<span class="token punctuation">:</span> tdtUrl <span class="token operator">+</span>
+        <span class="token string">"DataServer?T="</span> <span class="token operator">+</span>
+        node<span class="token punctuation">.</span>mapStyle <span class="token operator">+</span>
+        <span class="token string">"&amp;x=&amp;#123;x&amp;#125;&amp;y=&amp;#123;y&amp;#125;&amp;l=&amp;#123;z&amp;#125;&amp;tk="</span> <span class="token operator">+</span>
+        node<span class="token punctuation">.</span>token<span class="token punctuation">,</span>
+      subdomains<span class="token punctuation">:</span> subdomains<span class="token punctuation">,</span>
+      tilingScheme<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>WebMercatorTilingScheme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      maximumLevel<span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// URL模板中的&amp;#123;s&amp;#125;会被替换为subdomains数组中的一个元素，也就是一个子域名。这意味着，每次请求影像数据时，都会从这八个子域名中选择一个来用。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">loadTIN</span><span class="token punctuation">(</span>viewer<span class="token punctuation">,</span> node<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> terrainProvider <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>CesiumTerrainProvider</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    url<span class="token punctuation">:</span> data_url<span class="token punctuation">,</span>
+    isSct<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 表示使用SCT（Scaled and Offset Terrain）地形数据格式</span>
+    requestVertexNormals<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 表示是否请求顶点法线信息</span>
+    requestWaterMask<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 表示是否请求水面遮罩信息</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  viewer<span class="token punctuation">.</span>terrainProvider <span class="token operator">=</span> terrainProvider<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ 
+
+<div class="p-2 pe-4">
+  
+
+     
+        <a href="/2023/09/27/projects/project1/" class="btn btn-outline-secondary btn-sm float-start">
+            <small>
+                < 上一篇：项目1
+            </small>
+        </a>
+     
+
+
+     
+</div>
+ 
+                <!-- 分页 -->
+
+            </div>
+    
+            <!-- sidebar -->
+            <div class="col-4 position-sticky">
+                <div class="border-start ps-3 pb-3 pt-3">
+    
+        <!-- 侧边栏 分类 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-folder-open"></i> 分类
+        
+    </h6>
+    <div class="card-body">
+        <ul class="list-group border-0">
+            
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/three-js/ ">
+                three.js <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
+                Cesium <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+              
+        </ul>
+
+        <ul class="list-group border-0 collapse" id="category">
+            
+        </ul>
+    </div>
+</div>
+
+ 
+    
+        <!-- 侧边栏 标签 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-tag"></i> 标签
+        
+    </h6>
+
+    <div class="card-body tag-hover">
+        
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%A1%B9%E7%9B%AE/ ">
+                项目 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E5%8A%9F%E8%83%BD/ ">
+                功能 <span class="badge bg-secondary float-end m-1">3</span>
+            </a>
+          
+
+        <span id="tags" class="collapse">
+            
+        </span>
+    </div>
+</div>
+ 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-clock-o"></i> 最近文章</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Cesium 功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> three.js gltf 模型转换为three.points点云模型 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> three.js 测距功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> 项目1 </small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-link"></i> 友情链接</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://so.csdn.net/ ">
+                    <small>csdn</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://github.com/ ">
+                    <small>GitHub</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>Hexo</small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+
+</div> 
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark pt-2 pb-0 mt-5">
+    <div class="container pb-3 pt-3 text-center">
+        <p class="text-muted tag-hover"> © 2023 个人博客 个人网站 
+            <br>
+            <a class="link-secondary text-decoration-none" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">
+                 
+            </a>
+        </p>
+    </div>
+</footer> 
+</body>
+
+</html>
