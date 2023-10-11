@@ -10,7 +10,7 @@
       <link href="/2023/10/09/projects/%E2%80%9C%E6%84%9F%E7%9F%A5%E7%BA%A2%E8%89%B2%E5%B9%BF%E5%B7%9E%E2%80%9D%E2%80%94%E2%80%94%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%BA%A2%E6%97%85%E6%99%AF%E7%82%B9%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/"/>
       <url>/2023/10/09/projects/%E2%80%9C%E6%84%9F%E7%9F%A5%E7%BA%A2%E8%89%B2%E5%B9%BF%E5%B7%9E%E2%80%9D%E2%80%94%E2%80%94%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%BA%A2%E6%97%85%E6%99%AF%E7%82%B9%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/</url>
       
-        <content type="html"><![CDATA[<p>ESRI2023——“感知红色广州”——广州市红旅景点情感分析系统</p><h2 id="1-项目背景"><a href="#1-项目背景" class="headerlink" title="1.项目背景"></a>1.项目背景</h2><p>近年来，广州市政府愈发注重对红色资源的保护，在红色文化资源保护利用方面取得了不少成绩。根据中共广州市委党史研究室的普查结果显示, 广州市党史旧 (遗) 址现共有190处。依托全国文物普查和广州市第五次文物普查成果，当中知名度比较高、保护级别比较高的广州红色史迹文保单位共25处。当前，日益增多的游客通过互联网获取或反馈相关地点的旅游信息,“利用网络相互分享旅途体验或感受,从而使得有关旅游的大量舆论信息在网络平台上得以有效地交汇”。</p><p>因此，本项目聚焦于广州市红色旅游景点，以互联网评论为主要数据源之一，全面了解红色旅游景点的分布特征，厘清红色文化资源。通过情感分析从中微观层面对广州市红色旅游景点进行评价，为进一步保护红色旅游景点和因地制宜开发提供更加具有实践性的建议。</p><h2 id="2-项目简介"><a href="#2-项目简介" class="headerlink" title="2.项目简介"></a>2.项目简介</h2><p>  针对广州市内的红色旅游景点，本项目从地理空间、游客感知意象的角度出发，利用地理信息系统空间分析技术，采用百度AI情感分析接口，同时运用Vue+Express+PostgreSQL进行管理分析系统的搭建，将网络评论数据、景点POI数据、道路交通数据等作为数据源，通过对广州市红色旅游景点的空间特征、可达性、游客情感倾向进行分析，规划广州市红色研学路线，研究广州市红色旅游景点的空间格局及保护开发方法。</p><h2 id="3-主要功能"><a href="#3-主要功能" class="headerlink" title="3.主要功能"></a>3.主要功能</h2><!-- ![系统功能](https://raw.githubusercontent.com/FallonXC/blogImg/main/C1385%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD.png) --><img src="https://raw.githubusercontent.com/FallonXC/blogImg/main/C1385%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD.png" alt="系统功能" width="700"><h2 id="4-特点"><a href="#4-特点" class="headerlink" title="4.特点"></a>4.特点</h2><ul><li><p><strong>多源数据的红色旅游分析</strong>：本系统以红色旅游景点为核心对象，利用网络评论、POI等多源数据挖掘分析景点的空间特征，呈现直观、清晰且信息丰富的多种分析结果可视化，为管理研究人员提供了实践性的决策建议，有助于更好地管理保护、开发红色旅游资源。</p></li><li><p><strong>多维度情感分析与数据展示</strong>： 利用基于深度学习的百度AI情感分析技术结合游客的网络评论数据，能够更精准地捕捉游客对红色旅游景点的情感和感知意向，为管理人员提供更准确的用户反馈，从而优化景点服务和体验。</p></li><li><p><strong>定制化研学路线设计</strong>： 在结合已有红色景点分析功能的基础上，系统设计了具有区域特色、多层次、多方面的红色研学路线。这种设计支持研究人员自主规划和设计研学路线，使游客能够更全面地了解广州市的红色历史文化。</p></li><li><p><strong>小程序端的增强互动性</strong>： 通过小程序端，游客可以更方便地定位打卡，展示已打卡景点，增加游客与景点的互动性，使旅行更加有趣。</p></li><li><p><strong>综合性的旅游辅助平台</strong>： 本系统不仅提供景点信息和路线规划，还结合情感分析、互动打卡等功能，创造了一个全面的旅游辅助平台，增强了游客的旅行体验。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>ESRI2023——“感知红色广州”——广州市红旅景点情感分析系统</p><h2 id="1-项目背景"><a href="#1-项目背景" class="headerlink" title="1.项目背景"></a>1.项目背景</h2><p>&emsp;&emsp;近年来，广州市政府愈发注重对红色资源的保护，在红色文化资源保护利用方面取得了不少成绩。根据中共广州市委党史研究室的普查结果显示, 广州市党史旧 (遗) 址现共有 190 处。依托全国文物普查和广州市第五次文物普查成果，当中知名度比较高、保护级别比较高的广州红色史迹文保单位共 25 处。当前，日益增多的游客通过互联网获取或反馈相关地点的旅游信息,“利用网络相互分享旅途体验或感受,从而使得有关旅游的大量舆论信息在网络平台上得以有效地交汇”。</p><p>&emsp;&emsp;因此，本项目聚焦于广州市红色旅游景点，以互联网评论为主要数据源之一，全面了解红色旅游景点的分布特征，厘清红色文化资源。通过情感分析从中微观层面对广州市红色旅游景点进行评价，为进一步保护红色旅游景点和因地制宜开发提供更加具有实践性的建议。</p><h2 id="2-项目简介"><a href="#2-项目简介" class="headerlink" title="2.项目简介"></a>2.项目简介</h2><p>&emsp;&emsp;针对广州市内的红色旅游景点，本项目从地理空间、游客感知意象的角度出发，利用地理信息系统空间分析技术，采用百度 AI 情感分析接口，同时运用 Vue+Express+PostgreSQL 进行管理分析系统的搭建，将网络评论数据、景点 POI 数据、道路交通数据等作为数据源，通过对广州市红色旅游景点的空间特征、可达性、游客情感倾向进行分析，规划广州市红色研学路线，研究广州市红色旅游景点的空间格局及保护开发方法。</p><h2 id="3-需求分析"><a href="#3-需求分析" class="headerlink" title="3. 需求分析"></a>3. 需求分析</h2><p>&emsp;&emsp;本系统是一个综合性的应用系统，旨在为游客提供丰富的功能和信息，帮助他们更好地了解、规划和体验广州市的红色旅游景点。</p><ul><li>数据看板： 系统应提供一个数据看板，展示广州市各个红旅景点的基本信息、访问量、用户评价等数据。数据看板可以帮助管理人员实时了解景点的热度和用户反馈，以便进行合理的资源分配和管理。空间分析结果可视化： 为了帮助用户更直观地了解广州市红旅景点之间的空间分布和关联，系统应提供地图展示功能，将各个景点在地图上标注出来，同时将分析结果可视化，辅助管理人员进行下一步的判断。</li><li>官方红色景点研学路线推荐： 系统应当根据景点的历史背景和相关性，为用户推荐官方认定的红色景点研学路线。这些路线可以涵盖不同主题和历史事件，使用户能够全面了解广州市的红色旅游资源。</li><li>红旅景点分类： 为了方便用户查找感兴趣的景点，系统应提供红旅景点的分类功能，例如按照历史时期、主题等进行分类，让用户能够有针对性地搜索和选择。</li><li>研学路线规划： 用户可以根据自己的兴趣和需求，使用系统的研学路线规划功能，自行选择红旅景点，规划行程路线，系统可以根据用户选择进行路径优化。</li><li>红旅景点打卡： 用户在游览景点时可以通过系统进行打卡，记录自己的到访。这可以激发用户的互动和参与感，同时也可以为用户提供留念和分享的方式。</li><li>路线收藏： 用户可以将自己规划的研学路线或喜欢的景点收藏起来，方便日后查看和使用。这个功能可以帮助用户更好地整理和保存旅游计划。</li><li>情感分析： 系统可以利用自然语言处理技术，对用户在景点留下的评价进行情感分析，从而了解用户对景点的满意度和情感体验，为景点改进提供参考。</li><li>用户账号管理： 系统需要提供用户注册和登录功能，以及管理用户个人信息和历史记录的功能，保障用户信息安全和隐私。</li></ul><h2 id="4-主要功能"><a href="#4-主要功能" class="headerlink" title="4.主要功能"></a>4.主要功能</h2><h5 id="4-1-系统架构图"><a href="#4-1-系统架构图" class="headerlink" title="4.1 系统架构图"></a>4.1 系统架构图</h5><div align=center><img src="https://raw.githubusercontent.com/FallonXC/blogImg/main/C1385%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png" alt="系统架构" width="700"></div><h5 id="4-2-系统架构说明"><a href="#4-2-系统架构说明" class="headerlink" title="4.2 系统架构说明"></a>4.2 系统架构说明</h5><ul><li><p>在数据层面，本系统采用 PostgreSQL 服务器关系型数据库，结合 Python 网络爬虫技术，调用腾讯 API；</p></li><li><p>在服务层面，Web 服务中结合 Vue-CLI 与 Express，利用 ArcGis Server 中地图服务于 GP 服务，实现本系统的服务需求；</p></li><li><p>在应用层面，结合 OpenLayers API，本系统实现了“空间分布特征”、“景点定位打卡”这两方面的数据服务；提供了“空间分析”、“叠置分析”、“评论情感分析”这三方面数据分析功能；能够采用“景点红色文化”、“研学路线推荐及规划”这两个功能为用户提供辅助决策；</p></li><li><p>在访问层，借助 HTML、CSS、JavaScript、ECharts、Element-plus 和 Axios，在 PC 和微信小程序对系统进行访问。</p></li></ul><h2 id="5-主要功能"><a href="#5-主要功能" class="headerlink" title="5.主要功能"></a>5.主要功能</h2><div align=center><img src="https://raw.githubusercontent.com/FallonXC/blogImg/main/C1385%E7%B3%BB%E7%BB%9F%E5%8A%9F%E8%83%BD.png" alt="系统功能" width="700"></div><h2 id="6-关键技术"><a href="#6-关键技术" class="headerlink" title="6.关键技术"></a>6.关键技术</h2><h5 id="6-1-情感分析"><a href="#6-1-情感分析" class="headerlink" title="6.1 情感分析"></a>6.1 情感分析</h5><p>&emsp;&emsp;情感倾向分析（简称Senta）针对带有主观描述的中文文本，可自动判断该文本的情感极性类别并给出相应的置信度，能够帮助企业理解用户消费习惯、分析热点话题和危机舆情监控，为企业提供有利的决策支持。本系统采用百度云API 提供的情感倾向分析接口对包含主观观点信息的文本进行情感极性类别（积极、消极、中性）的判断，并给出相应的置信度。该接口对只包含单一主体主观信息的文本，进行自动情感倾向性判断（积极、消极、中性），并给出相应的置信度。该接口依赖已经建立的为口碑分析、话题监控、舆情分析等应用提供基础技术支持。</p><p>&emsp;&emsp;本系统基于百度云API服务，先进行认证授权，创建情感分析应用后获取API Key及Secret Key，进行接口调用操作，及相关配置，最后通过Python根据HTTP方法请求接口、POST方法调用，得到参数返回sentiment、confidence、positive_prob、negative_prob（以上参数分别表示为情感极性分类结果、分类的置信度、属于积极类别的概率、属于消极类别的概率），最后整理处理分数。</p><div align=center><img src="https://raw.githubusercontent.com/FallonXC/blogImg/main/C1385%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="情感分析流程图" width="700"></div><center>图 1  情感分析流程图</center><h5 id="6-2-Vue3-Express-PostgreSQL"><a href="#6-2-Vue3-Express-PostgreSQL" class="headerlink" title="6.2 Vue3+Express+PostgreSQL"></a>6.2 Vue3+Express+PostgreSQL</h5><p>&emsp;&emsp;Vue.js是一种用于构建用户界面的渐进式JavaScript框架。它专注于视图层，提供了一套声明式的组件系统，可以轻松地将UI拆分为可重用的组件。Vue具有轻量化、组件化、响应式数据绑定等优势；Express是一个基于Node.js的后端框架，用于构建Web应用和API。它提供了一系列的工具和功能，使后端开发变得更加简单和高效；PostgreSQL是一个功能强大的开源关系型数据库管理系统。</p><p>&emsp;&emsp;Vue3+Express+PostgreSQL可以构建出现代化的全栈Web应用程序，实现前后端分离式开发，提高代码的可维护性和协作效率。</p><h5 id="6-3-openlayers框架"><a href="#6-3-openlayers框架" class="headerlink" title="6.3 openlayers框架"></a>6.3 openlayers框架</h5><p>&emsp;&emsp;OpenLayers是一个开源的JavaScript库，用于在Web上创建交互式地图和地理信息系统（GIS）应用程序。它提供了丰富的功能和工具，使开发人员能够轻松地在网页中嵌入地图、图层、标记、矢量数据等地理信息。</p><h2 id="7-作品亮点"><a href="#7-作品亮点" class="headerlink" title="7. 作品亮点"></a>7. 作品亮点</h2><ul><li><p><strong>多源数据的红色旅游分析</strong>：本系统以红色旅游景点为核心对象，利用网络评论、POI 等多源数据挖掘分析景点的空间特征，呈现直观、清晰且信息丰富的多种分析结果可视化，为管理研究人员提供了实践性的决策建议，有助于更好地管理保护、开发红色旅游资源。</p></li><li><p><strong>多维度情感分析与数据展示</strong>： 利用基于深度学习的百度 AI 情感分析技术结合游客的网络评论数据，能够更精准地捕捉游客对红色旅游景点的情感和感知意向，为管理人员提供更准确的用户反馈，从而优化景点服务和体验。</p></li><li><p><strong>定制化研学路线设计</strong>： 在结合已有红色景点分析功能的基础上，系统设计了具有区域特色、多层次、多方面的红色研学路线。这种设计支持研究人员自主规划和设计研学路线，使游客能够更全面地了解广州市的红色历史文化。</p></li><li><p><strong>小程序端的增强互动性</strong>： 通过小程序端，游客可以更方便地定位打卡，展示已打卡景点，增加游客与景点的互动性，使旅行更加有趣。</p></li><li><p><strong>综合性的旅游辅助平台</strong>： 本系统不仅提供景点信息和路线规划，还结合情感分析、互动打卡等功能，创造了一个全面的旅游辅助平台，增强了游客的旅行体验。</p></li></ul>]]></content>
       
       
       <categories>
@@ -86,33 +86,6 @@
     
     <entry>
       
-        <title>项目1</title>
-      
-      <link href="/2023/09/27/projects/project1/"/>
-      <url>/2023/09/27/projects/project1/</url>
-      
-        <content type="html"><![CDATA[<p>three.js 测距功能实现</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> esri </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 项目 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      
         <title>Cesium 功能实现</title>
       
       <link href="/2023/09/15/Cesium%E7%AC%94%E8%AE%B0/"/>
@@ -158,6 +131,33 @@
         <tags>
             
             <tag> 功能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      
+        <title>Nginx服务器配置</title>
+      
+      <link href="/2023/09/11/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
+      <url>/2023/09/11/Nginx%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<p>Nginx服务器配置</p><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul><li>需求：将本地项目build后同时放到云服务器上，或解决跨域问题；</li></ul><h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">server</span><span class="token punctuation">{</span>  <span class="token keyword">listen</span> <span class="token number">7444</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true"># 监听的接口</span>  <span class="token keyword">server</span> name <span class="token number">139.159</span><span class="token punctuation">.</span><span class="token number">202.250</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true"># localhost或者本地的IP</span>  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>    <span class="token keyword">root</span> C<span class="token punctuation">:</span><span class="token operator">/</span>ins<span class="token operator">/</span>lot<span class="token punctuation">;</span>    try files <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html  <span class="token punctuation">}</span>  <span class="token comment" spellcheck="true"># 跨域配置</span>  <span class="token keyword">location</span> <span class="token operator">/</span>app <span class="token punctuation">{</span>    <span class="token comment" spellcheck="true"># 在这里配置跨域规则</span>    add header <span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">;</span>    add header'Access<span class="token operator">-</span>Control<span class="token operator">-</span>A11ow<span class="token operator">-</span>Methods<span class="token string">""</span>GET，POST，OPTIONS<span class="token punctuation">;</span>    <span class="token keyword">proxy_pass</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>geoapp<span class="token punctuation">.</span>gzpi<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>ddy_yp<span class="token punctuation">;</span> <span class="token comment" spellcheck="true"># 代理到前端应用</span>    <span class="token keyword">proxy</span> <span class="token keyword">set</span> header Host <span class="token variable">$host</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><a name="ConP6"></a></p><h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><ol><li>端口长度问题：nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32</li></ol><pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">server_names_hash_bucket_size</span> <span class="token number">64</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true"># 根据需要适当调整大小</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><ol start="2"><li>出现&#x2F;assets无法定位的问题</li></ol><pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>assets <span class="token punctuation">{</span>  <span class="token keyword">alias</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>your<span class="token operator">/</span>assets<span class="token operator">/</span>directory<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><ol start="3"><li>扩展：alias和root区别<ol><li><strong>root</strong>：</li></ol><ul><li><strong>root</strong> 指令用于设置一个根目录，它定义了一个基本的文件系统路径，用于构建请求的最终文件路径。</li><li>当使用 <strong>root</strong> 时，Nginx 会将请求的 URI 直接附加到根目录，构成请求的文件路径。例如，如果根目录是 <strong>&#x2F;var&#x2F;www</strong>，并且请求的 URI 是 <strong>&#x2F;images&#x2F;pic.jpg</strong>，则最终的文件路径将是 <strong>&#x2F;var&#x2F;www&#x2F;images&#x2F;pic.jpg</strong>。</li><li><strong>root</strong> 通常用于处理静态文件，例如 HTML、CSS、JavaScript 文件等。它适用于在请求中保留 URI 结构的情况。</li></ul></li></ol><pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>static<span class="token operator">/</span> <span class="token punctuation">{</span>  <span class="token keyword">root</span> <span class="token operator">/</span>var<span class="token operator">/</span>www<span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><ol start="2"><li><strong>alias</strong>：</li></ol><ul><li><strong>alias</strong> 指令用于指定一个别名，它可以更灵活地映射请求的 URI 到文件系统的不同位置。</li><li>当使用 <strong>alias</strong> 时，Nginx 会将请求的 URI 替换为指定的别名路径，然后寻找文件。这意味着你可以将请求的 URI 与文件系统的实际路径完全分开。</li><li><strong>alias</strong> 通常用于处理特定类型的请求，例如代理服务器中的 URL 重写或者处理文件存储在不同位置的情况。</li></ul><pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>images<span class="token operator">/</span> <span class="token punctuation">{</span>  <span class="token keyword">alias</span> <span class="token operator">/</span>var<span class="token operator">/</span>www<span class="token operator">/</span>images<span class="token operator">/</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ngnix </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 配置 </tag>
             
         </tags>
       

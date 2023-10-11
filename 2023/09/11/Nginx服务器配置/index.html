@@ -110,9 +110,72 @@
                     <!-- 搜索结果 -->
                     <div id="local-search-result"></div>
                     <!-- 博客详情 -->
-<h2>项目1</h2>
-<p>2023/09/27 17:34:00 </p>
-<p>three.js 测距功能实现</p>
+<h2>Nginx服务器配置</h2>
+<p>2023/09/11 10:45:34 </p>
+<p>Nginx服务器配置</p>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ul>
+<li>需求：将本地项目build后同时放到云服务器上，或解决跨域问题；</li>
+</ul>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">server</span><span class="token punctuation">{</span>
+  <span class="token keyword">listen</span> <span class="token number">7444</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true"># 监听的接口</span>
+  <span class="token keyword">server</span> name <span class="token number">139.159</span><span class="token punctuation">.</span><span class="token number">202.250</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true"># localhost或者本地的IP</span>
+
+  <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+    <span class="token keyword">root</span> C<span class="token punctuation">:</span><span class="token operator">/</span>ins<span class="token operator">/</span>lot<span class="token punctuation">;</span>
+    try files <span class="token variable">$uri</span> <span class="token variable">$uri</span><span class="token operator">/</span> <span class="token operator">/</span><span class="token keyword">index</span><span class="token punctuation">.</span>html
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true"># 跨域配置</span>
+  <span class="token keyword">location</span> <span class="token operator">/</span>app <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true"># 在这里配置跨域规则</span>
+    add header <span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">;</span>
+    add header'Access<span class="token operator">-</span>Control<span class="token operator">-</span>A11ow<span class="token operator">-</span>Methods<span class="token string">""</span>GET，POST，OPTIONS<span class="token punctuation">;</span>
+
+    <span class="token keyword">proxy_pass</span> <span class="token keyword">https</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>geoapp<span class="token punctuation">.</span>gzpi<span class="token punctuation">.</span>com<span class="token punctuation">.</span>cn<span class="token operator">/</span>ddy_yp<span class="token punctuation">;</span> <span class="token comment" spellcheck="true"># 代理到前端应用</span>
+    <span class="token keyword">proxy</span> <span class="token keyword">set</span> header Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><a name="ConP6"></a></p>
+<h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><ol>
+<li>端口长度问题：nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32</li>
+</ol>
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">server_names_hash_bucket_size</span> <span class="token number">64</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true"># 根据需要适当调整大小</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="2">
+<li>出现&#x2F;assets无法定位的问题</li>
+</ol>
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>assets <span class="token punctuation">{</span>
+  <span class="token keyword">alias</span> <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>your<span class="token operator">/</span>assets<span class="token operator">/</span>directory<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>扩展：alias和root区别<ol>
+<li><strong>root</strong>：</li>
+</ol>
+<ul>
+<li><strong>root</strong> 指令用于设置一个根目录，它定义了一个基本的文件系统路径，用于构建请求的最终文件路径。</li>
+<li>当使用 <strong>root</strong> 时，Nginx 会将请求的 URI 直接附加到根目录，构成请求的文件路径。例如，如果根目录是 <strong>&#x2F;var&#x2F;www</strong>，并且请求的 URI 是 <strong>&#x2F;images&#x2F;pic.jpg</strong>，则最终的文件路径将是 <strong>&#x2F;var&#x2F;www&#x2F;images&#x2F;pic.jpg</strong>。</li>
+<li><strong>root</strong> 通常用于处理静态文件，例如 HTML、CSS、JavaScript 文件等。它适用于在请求中保留 URI 结构的情况。</li>
+</ul>
+</li>
+</ol>
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>static<span class="token operator">/</span> <span class="token punctuation">{</span>
+  <span class="token keyword">root</span> <span class="token operator">/</span>var<span class="token operator">/</span>www<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li><strong>alias</strong>：</li>
+</ol>
+<ul>
+<li><strong>alias</strong> 指令用于指定一个别名，它可以更灵活地映射请求的 URI 到文件系统的不同位置。</li>
+<li>当使用 <strong>alias</strong> 时，Nginx 会将请求的 URI 替换为指定的别名路径，然后寻找文件。这意味着你可以将请求的 URI 与文件系统的实际路径完全分开。</li>
+<li><strong>alias</strong> 通常用于处理特定类型的请求，例如代理服务器中的 URL 重写或者处理文件存储在不同位置的情况。</li>
+</ul>
+<pre class="line-numbers language-nginx"><code class="language-nginx"><span class="token keyword">location</span> <span class="token operator">/</span>images<span class="token operator">/</span> <span class="token punctuation">{</span>
+  <span class="token keyword">alias</span> <span class="token operator">/</span>var<span class="token operator">/</span>www<span class="token operator">/</span>images<span class="token operator">/</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
  
 
 <div class="p-2 pe-4">
@@ -123,20 +186,14 @@
     <br/><br/>
 
      
-        <a href="/2023/09/27/three.js%20%E6%B5%8B%E8%B7%9D%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0/" class="btn btn-outline-secondary btn-sm float-start">
+        <a href="/2023/09/13/vue%E5%AF%BC%E5%87%BAexcel%E3%80%81txt%E3%80%81csv%E6%96%87%E4%BB%B6/" class="btn btn-outline-secondary btn-sm float-start">
             <small>
-                < 上一篇：three.js 测距功能实现
+                < 上一篇：vue导出excel、txt、csv文件
             </small>
         </a>
      
 
 
-     
-        <a href="/2023/09/15/Cesium%E7%AC%94%E8%AE%B0/" class="btn btn-outline-secondary btn-sm float-end" >
-            <small>
-                下一篇：Cesium 功能实现 >
-            </small>
-        </a>
      
 </div>
  
@@ -162,13 +219,18 @@
             </a>
             
              
-            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
-                esri <span class="badge bg-secondary float-end m-1">2</span>
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/ngnix/ ">
+                ngnix <span class="badge bg-secondary float-end m-1">1</span>
             </a>
             
              
             <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
                 Cesium <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">1</span>
             </a>
             
              
@@ -197,7 +259,12 @@
         
              
             <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%A1%B9%E7%9B%AE/ ">
-                项目 <span class="badge bg-secondary float-end m-1">2</span>
+                项目 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%85%8D%E7%BD%AE/ ">
+                配置 <span class="badge bg-secondary float-end m-1">1</span>
             </a>
         
              
@@ -225,6 +292,11 @@
             
             
                 <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Nginx服务器配置 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
                     <small> Cesium 功能实现 </small>
                 </a>
             
@@ -236,11 +308,6 @@
             
                 <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
                     <small> three.js 测距功能实现 </small>
-                </a>
-            
-            
-                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
-                    <small> vue导出excel、txt、csv文件 </small>
                 </a>
             
             
