@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FallonXu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<script src="/js/search.js"></script>
+ 
+
+    <script type="text/javascript">
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/ ">
+            FallonXu
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/">
+            <i class="fa fa-home "> </i> 主页
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/project">
+            <i class="bi bi-collection "> </i> 项目
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/archives">
+            <i class="fa fa-archive "> </i> 归档
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+  
+            </ul>
+
+             
+                <form class="d-flex">
+                    <button class="btn text-muted fa fa-search" disabled></button>
+                    <input id="local-search-input" class="form-control me-2 pe-4" type="search"
+                            placeholder="搜索" aria-label="Search">
+                </form>
+            
+
+            <ul class="navbar-nav">
+                <!-- 
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+   -->
+                <li class="nav-item">
+                    <img src="/img/head.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="container" style="margin-top: 80px;">
+        <div class="row pt-3">
+            <!-- 文章 -->
+            <div class="col-8">
+                <div class="markdown-section">
+                    <!-- 搜索结果 -->
+                    <div id="local-search-result"></div>
+                    <!-- 博客详情 -->
+<h2>var、let、const异同点及区分</h2>
+<p>2022/08/16 20:21:20 </p>
+<p>JavaScript——var、let、const异同点及区分</p>
+<p>相同点：三者皆可声明变量</p>
+<p>区分：</p>
+<div align=center>
+<img src="https://raw.githubusercontent.com/FallonXC/blogImg/main/image-20231012110226116.png" width="700">
+</div>
+
+<h3 id="循环中let和var声明的循环变量的区别"><a href="#循环中let和var声明的循环变量的区别" class="headerlink" title="循环中let和var声明的循环变量的区别"></a>循环中let和var声明的循环变量的区别</h3><h4 id="事件的绑定"><a href="#事件的绑定" class="headerlink" title="事件的绑定"></a>事件的绑定</h4><p>通过for循环给标签绑定事件，也就是一打开执行界面，事件绑定就结束了，也就是 循环已经结束了，也就是触发事件时循环已经结束了。</p>
+<h4 id="循环变量存储的数据数值"><a href="#循环变量存储的数据数值" class="headerlink" title="循环变量存储的数据数值"></a>循环变量存储的数据数值</h4><ul>
+<li>var声明的循环变量</li>
+</ul>
+<p>在整个循环变量过程中只定义了一个循环变量i，每次循环都对这一个循环变量i进行重复赋值，也就是之后的循环变量数值会覆盖之前的循环变量数值，当循环结束后只有一个循环变量i，存储的是最终的循环变量数值。</p>
+<ul>
+<li>let声明的循环变量</li>
+</ul>
+<p>在整个循环过程中每次循环都相当于触发执行了一个{   }，每一个{   }对于let定义的变量就是一个独立的作用域，也就是每次循环let声明的循环变量都是一个人独立作用域中的循环变量，每一次循环中循环变量都会存储不同的数据数值，互相之间不会影响，不会覆盖，也就是每次循环let声明的循环变量都相当于是一个独立的变量，不会覆盖之前的数据数值。</p>
+<p>示例代码：</p>
+<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>我是第一个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>我是第二个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>我是第三个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>我是第四个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>我是第五个li<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    <span class="token comment" spellcheck="true">// 给 li 绑定事件 点击 li标签 弹出 索引下标</span>
+    <span class="token comment" spellcheck="true">// 获取标签对象</span>
+    <span class="token keyword">const</span> oLis <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'ul>li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// 通过 for循环 给 li标签 绑定事件</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> oLis<span class="token punctuation">.</span>length <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// i 是 索引下标 oLis[i] 是 li标签对象</span>
+        oLis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">'click'</span> <span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token comment" spellcheck="true">// 点击时输出索引下标</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token template-string"><span class="token string">`我是var循环的i </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span> <span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> oLis<span class="token punctuation">.</span>length <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// i 是 索引下标 oLis[i] 是 li标签对象</span>
+        oLis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">'click'</span> <span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token comment" spellcheck="true">// 点击时输出索引下标</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token template-string"><span class="token string">`我是let循环的i </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>j<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>结果输出：</p>
+<div align=center>
+<img src="https://raw.githubusercontent.com/FallonXC/blogImg/main/1660652462283-d0558ede-c070-45ec-bc35-3eb0c804f320.gif" width="700">
+</div> 
+
+<div class="p-2 pe-4">
+    <span id="busuanzi_container_page_pv" style='display:none'>
+        <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+    </span>
+
+    <br/><br/>
+
+     
+        <a href="/2023/03/18/python%20PCL%20LAS%20Open3D%E7%82%B9%E4%BA%91/" class="btn btn-outline-secondary btn-sm float-start">
+            <small>
+                < 上一篇：python PCL LAS Open3D点云
+            </small>
+        </a>
+     
+
+
+     
+</div>
+ 
+                </div>
+            </div>
+    
+            <!-- sidebar -->
+            <div class="col-4 position-sticky">
+                <div class="border-start ps-3 pb-3 pt-3">
+    
+        <!-- 侧边栏 分类 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-folder-open"></i> 分类
+        
+    </h6>
+    <div class="card-body">
+        <ul class="list-group border-0">
+            
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/PCL/ ">
+                PCL <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/three-js/ ">
+                three.js <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
+                Cesium <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Echarts/ ">
+                Echarts <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/ngnix/ ">
+                ngnix <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/javascript/ ">
+                javascript <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue2/ ">
+                vue2 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue/ ">
+                vue <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+              
+        </ul>
+
+        <ul class="list-group border-0 collapse" id="category">
+            
+        </ul>
+    </div>
+</div>
+
+ 
+    
+        <!-- 侧边栏 标签 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-tag"></i> 标签
+        
+    </h6>
+
+    <div class="card-body tag-hover">
+        
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%A1%B9%E7%9B%AE/ ">
+                项目 <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%85%8D%E7%BD%AE/ ">
+                配置 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%AC%94%E8%AE%B0/ ">
+                笔记 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%A4%BA%E4%BE%8B/ ">
+                示例 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E6%95%99%E7%A8%8B/ ">
+                教程 <span class="badge bg-secondary float-end m-1">3</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E5%8A%9F%E8%83%BD/ ">
+                功能 <span class="badge bg-secondary float-end m-1">4</span>
+            </a>
+          
+
+        <span id="tags" class="collapse">
+            
+        </span>
+    </div>
+</div>
+ 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-clock-o"></i> 最近文章</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Cesium 功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Echarts 时间轴监听事件 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Nginx服务器配置 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> VS2019+PCL+LAS点云学习 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> python PCL LAS Open3D点云 </small>
+                </a>
+            
+            
+            
+            
+            
+            
+            
+             
+        </ul>
+    </div>
+</div> 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-link"></i> 友情链接</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://so.csdn.net/ ">
+                    <small>csdn</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://github.com/ ">
+                    <small>GitHub</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>Hexo</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>bilibili</small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+
+</div> 
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark pt-2 pb-0 mt-5">
+    <div class="container pb-2 pt-2 text-center">
+        <p class="text-muted tag-hover"> © 2023 个人博客 个人网站 
+            <br>
+            <!-- 不蒜子统计 -->
+            <span id="busuanzi_container_site_pv">
+                    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                    本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+            <a class="link-secondary text-decoration-none" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">
+                 
+            </a>
+        </p>
+    </div>
+</footer> 
+</body>
+
+</html>

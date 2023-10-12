@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FallonXu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<script src="/js/search.js"></script>
+ 
+
+    <script type="text/javascript">
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/ ">
+            FallonXu
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/">
+            <i class="fa fa-home "> </i> 主页
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/project">
+            <i class="bi bi-collection "> </i> 项目
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/archives">
+            <i class="fa fa-archive "> </i> 归档
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+  
+            </ul>
+
+             
+                <form class="d-flex">
+                    <button class="btn text-muted fa fa-search" disabled></button>
+                    <input id="local-search-input" class="form-control me-2 pe-4" type="search"
+                            placeholder="搜索" aria-label="Search">
+                </form>
+            
+
+            <ul class="navbar-nav">
+                <!-- 
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+   -->
+                <li class="nav-item">
+                    <img src="/img/head.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="container" style="margin-top: 80px;">
+        <div class="row pt-3">
+            <!-- 文章 -->
+            <div class="col-8">
+                <div class="markdown-section">
+                    <!-- 搜索结果 -->
+                    <div id="local-search-result"></div>
+                    <!-- 博客详情 -->
+<h2>python PCL LAS Open3D点云</h2>
+<p>2023/03/18 23:54:34 </p>
+<p>VS2019+PCL+LAS点云学习</p>
+<h2 id="点云安装"><a href="#点云安装" class="headerlink" title="点云安装"></a>点云安装</h2><h3 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h3><ol>
+<li><ol>
+<li>CSDN教程等</li>
+</ol>
+</li>
+<li><ol>
+<li><p>1.1 【python3.6】python安装PCL（适用命令行或pycham中）-PCL 1.12.1</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44244190/article/details/124324121">https://blog.csdn.net/weixin_44244190/article/details/124324121</a></p>
+</li>
+</ol>
+</li>
+<li><p>1. </p>
+</li>
+<li><ol start="2">
+<li>部分教程</li>
+</ol>
+</li>
+<li><ol>
+<li><p>2.1 点云可视化：mayavi、matplotlib、CloudCompare</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/suiyingy/article/details/124015667">https://blog.csdn.net/suiyingy/article/details/124015667</a></p>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><p>2.2 点云数据常用处理：数据集增强（仿射变换、添加噪声、下采样、数据标准化）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/taifyang/article/details/124365265">https://blog.csdn.net/taifyang/article/details/124365265</a></p>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><p>2.3 Python点云数据处理</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1349368779659575296?utm_id=0">https://www.zhihu.com/column/c_1349368779659575296?utm_id=0</a></p>
+</li>
+</ol>
+</li>
+<li><ol>
+<li><p>2.4【点云无损压缩】python-pcl：点云las、laz文件的读取、写入、压缩</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40985985/article/details/105784220">https://blog.csdn.net/qq_40985985/article/details/105784220</a></p>
+</li>
+</ol>
+</li>
+<li><ol>
+<li></li>
+</ol>
+</li>
+</ol>
+<h2 id="点云入门"><a href="#点云入门" class="headerlink" title="点云入门"></a>点云入门</h2><h3 id="功能示例代码段"><a href="#功能示例代码段" class="headerlink" title="功能示例代码段"></a>功能示例代码段</h3><ol>
+<li>读取点云及基本信息</li>
+</ol>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">readlas</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">with</span> laspy<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">'./data/10层3号切片抽稀.las'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fh<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Points from Header:'</span><span class="token punctuation">,</span> fh<span class="token punctuation">.</span>header<span class="token punctuation">.</span>point_count<span class="token punctuation">)</span>
+        las <span class="token operator">=</span> fh<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>las<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Points from data:'</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>las<span class="token punctuation">.</span>points<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        ground_pts <span class="token operator">=</span> las<span class="token punctuation">.</span>classification <span class="token operator">==</span> <span class="token number">2</span>
+        bins<span class="token punctuation">,</span> counts <span class="token operator">=</span> np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>las<span class="token punctuation">.</span>return_number<span class="token punctuation">[</span>ground_pts<span class="token punctuation">]</span><span class="token punctuation">,</span> return_counts<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Ground Point Return Number distribution:'</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> r<span class="token punctuation">,</span> c <span class="token keyword">in</span> zip<span class="token punctuation">(</span>bins<span class="token punctuation">,</span> counts<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'{}:{}'</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>r<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'min: '</span><span class="token punctuation">,</span> fh<span class="token punctuation">.</span>header<span class="token punctuation">.</span>min<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># x、y、z 的最小值</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'max: '</span><span class="token punctuation">,</span> fh<span class="token punctuation">.</span>header<span class="token punctuation">.</span>max<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># x、y、z 的最大值</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>las<span class="token punctuation">.</span>xyz<span class="token punctuation">)</span><span class="token punctuation">)</span>
+Points <span class="token keyword">from</span> Header<span class="token punctuation">:</span> <span class="token number">57185</span>
+<span class="token operator">&lt;</span>LasData<span class="token punctuation">(</span><span class="token number">1.2</span><span class="token punctuation">,</span> point fmt<span class="token punctuation">:</span> <span class="token operator">&lt;</span>PointFormat<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span> bytes of extra dims<span class="token punctuation">)</span><span class="token operator">></span><span class="token punctuation">,</span> <span class="token number">57185</span> points<span class="token punctuation">,</span> <span class="token number">2</span> vlrs<span class="token punctuation">)</span><span class="token operator">></span>
+Points <span class="token keyword">from</span> data<span class="token punctuation">:</span> <span class="token number">57185</span>
+Ground Point Return Number distribution<span class="token punctuation">:</span>
+min<span class="token punctuation">:</span>  <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3.79119968</span> <span class="token operator">-</span><span class="token number">6.34900093</span> <span class="token operator">-</span><span class="token number">0.05</span>      <span class="token punctuation">]</span>
+max<span class="token punctuation">:</span>  <span class="token punctuation">[</span> <span class="token number">9.53839999</span> <span class="token number">12.90089989</span>  <span class="token number">0.05</span>      <span class="token punctuation">]</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li>点云格式转换：las-&gt;pcd</li>
+</ol>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 适用于laspy&lt;2.0.0的版本</span>
+<span class="token keyword">def</span> <span class="token function">getCloud</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    file <span class="token operator">=</span> r<span class="token string">"./data/10层3号切片抽稀.las"</span>
+    f <span class="token operator">=</span> File<span class="token punctuation">(</span>file<span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+    inFile <span class="token operator">=</span> np<span class="token punctuation">.</span>vstack<span class="token punctuation">(</span><span class="token punctuation">(</span>f<span class="token punctuation">.</span>x<span class="token punctuation">,</span> f<span class="token punctuation">.</span>y<span class="token punctuation">,</span> f<span class="token punctuation">.</span>z<span class="token punctuation">,</span> f<span class="token punctuation">.</span>intensity<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cloud <span class="token operator">=</span> pcl<span class="token punctuation">.</span>PointCloud_PointXYZI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cloud<span class="token punctuation">.</span>from_array<span class="token punctuation">(</span>np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>inFile<span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float32<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> cloud
+
+<span class="token comment" spellcheck="true"># 保存为pcd文件</span>
+<span class="token keyword">def</span> <span class="token function">save_pcd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    end1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cloud <span class="token operator">=</span> getCloud<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    pcl<span class="token punctuation">.</span>save<span class="token punctuation">(</span>cloud<span class="token punctuation">,</span> r<span class="token string">"./data/test.pcd"</span><span class="token punctuation">)</span>
+    end2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"las2pcd 耗时:%.2f秒"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>end2 <span class="token operator">-</span> end1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'-------endl----------'</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3> 
+
+<div class="p-2 pe-4">
+    <span id="busuanzi_container_page_pv" style='display:none'>
+        <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+    </span>
+
+    <br/><br/>
+
+     
+        <a href="/2023/08/24/vue2%E5%AF%BC%E5%85%A5svg/" class="btn btn-outline-secondary btn-sm float-start">
+            <small>
+                < 上一篇：vue2导入svg
+            </small>
+        </a>
+     
+
+
+     
+        <a href="/2022/08/16/var%E3%80%81let%E3%80%81const%E5%BC%82%E5%90%8C%E7%82%B9%E5%8F%8A%E5%8C%BA%E5%88%86/" class="btn btn-outline-secondary btn-sm float-end" >
+            <small>
+                下一篇：var、let、const异同点及区分 >
+            </small>
+        </a>
+     
+</div>
+ 
+                </div>
+            </div>
+    
+            <!-- sidebar -->
+            <div class="col-4 position-sticky">
+                <div class="border-start ps-3 pb-3 pt-3">
+    
+        <!-- 侧边栏 分类 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-folder-open"></i> 分类
+        
+    </h6>
+    <div class="card-body">
+        <ul class="list-group border-0">
+            
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/PCL/ ">
+                PCL <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/three-js/ ">
+                three.js <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
+                Cesium <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Echarts/ ">
+                Echarts <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/ngnix/ ">
+                ngnix <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/javascript/ ">
+                javascript <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue2/ ">
+                vue2 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue/ ">
+                vue <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+              
+        </ul>
+
+        <ul class="list-group border-0 collapse" id="category">
+            
+        </ul>
+    </div>
+</div>
+
+ 
+    
+        <!-- 侧边栏 标签 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-tag"></i> 标签
+        
+    </h6>
+
+    <div class="card-body tag-hover">
+        
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%A1%B9%E7%9B%AE/ ">
+                项目 <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%85%8D%E7%BD%AE/ ">
+                配置 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%AC%94%E8%AE%B0/ ">
+                笔记 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%A4%BA%E4%BE%8B/ ">
+                示例 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E6%95%99%E7%A8%8B/ ">
+                教程 <span class="badge bg-secondary float-end m-1">3</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E5%8A%9F%E8%83%BD/ ">
+                功能 <span class="badge bg-secondary float-end m-1">4</span>
+            </a>
+          
+
+        <span id="tags" class="collapse">
+            
+        </span>
+    </div>
+</div>
+ 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-clock-o"></i> 最近文章</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Cesium 功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Echarts 时间轴监听事件 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Nginx服务器配置 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> VS2019+PCL+LAS点云学习 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> python PCL LAS Open3D点云 </small>
+                </a>
+            
+            
+            
+            
+            
+            
+            
+             
+        </ul>
+    </div>
+</div> 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-link"></i> 友情链接</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://so.csdn.net/ ">
+                    <small>csdn</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://github.com/ ">
+                    <small>GitHub</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>Hexo</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>bilibili</small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+
+</div> 
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark pt-2 pb-0 mt-5">
+    <div class="container pb-2 pt-2 text-center">
+        <p class="text-muted tag-hover"> © 2023 个人博客 个人网站 
+            <br>
+            <!-- 不蒜子统计 -->
+            <span id="busuanzi_container_site_pv">
+                    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                    本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+            <a class="link-secondary text-decoration-none" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">
+                 
+            </a>
+        </p>
+    </div>
+</footer> 
+</body>
+
+</html>

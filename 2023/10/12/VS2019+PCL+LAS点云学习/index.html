@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FallonXu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<script src="/js/search.js"></script>
+ 
+
+    <script type="text/javascript">
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/ ">
+            FallonXu
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/">
+            <i class="fa fa-home "> </i> 主页
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/project">
+            <i class="bi bi-collection "> </i> 项目
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/archives">
+            <i class="fa fa-archive "> </i> 归档
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+  
+            </ul>
+
+             
+                <form class="d-flex">
+                    <button class="btn text-muted fa fa-search" disabled></button>
+                    <input id="local-search-input" class="form-control me-2 pe-4" type="search"
+                            placeholder="搜索" aria-label="Search">
+                </form>
+            
+
+            <ul class="navbar-nav">
+                <!-- 
+ 
+
+
+    <li class="nav-item">
+        <a class="nav-link" href="/about">
+            <i class="bi bi-info-circle "> </i> 关于
+        </a>
+    </li>
+   -->
+                <li class="nav-item">
+                    <img src="/img/head.jpg">
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="container" style="margin-top: 80px;">
+        <div class="row pt-3">
+            <!-- 文章 -->
+            <div class="col-8">
+                <div class="markdown-section">
+                    <!-- 搜索结果 -->
+                    <div id="local-search-result"></div>
+                    <!-- 博客详情 -->
+<h2>VS2019+PCL+LAS点云学习</h2>
+<p>2023/10/12 10:52:02 </p>
+<p>VS2019+PCL+LAS点云学习教程、基本代码</p>
+<h2 id="部分教程汇总"><a href="#部分教程汇总" class="headerlink" title="部分教程汇总"></a>部分教程汇总</h2><h5 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h5><ol>
+<li>win10系统下 VS2019点云库PCL1.12.0的安装与配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Nelson_Leo/article/details/118600787?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-118600787-blog-118568577.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-118600787-blog-118568577.pc_relevant_default&utm_relevant_index=2">https://blog.csdn.net/Nelson_Leo&#x2F;article&#x2F;details&#x2F;118600787</a></li>
+<li>PCL点云库安装及学习（2021.7.28）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/jing_zhong/article/details/118696089">https://blog.csdn.net/jing_zhong/article/details/118696089</a></li>
+<li>PCL安装教程(Win10+vs2019+PCL1.10.1)：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43403569/article/details/118568577">https://blog.csdn.net/weixin_43403569/article/details/118568577</a></li>
+<li>VS2019+pcl1.12.1配置详解：<a target="_blank" rel="noopener" href="https://blog.csdn.net/biubiubiu011/article/details/127160201">https://blog.csdn.net/biubiubiu011/article/details/127160201</a></li>
+<li>Gitee上传、更新仓库代码：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38697586/article/details/128185549">https://blog.csdn.net/qq_38697586/article/details/128185549</a></li>
+</ol>
+<h5 id="其他教程"><a href="#其他教程" class="headerlink" title="其他教程"></a>其他教程</h5><ol>
+<li><p>pcl生成三个点连线，画箭头，画圆，改线条颜色：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41092406/article/details/114041229">https://blog.csdn.net/qq_41092406/article/details/114041229</a></p>
+</li>
+<li><p>计算空间中点到直线的距离：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37220275/article/details/117954824">https://blog.csdn.net/qq_37220275/article/details/117954824</a></p>
+</li>
+<li><p>三维空间的直线方程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39706570/article/details/105962373">https://blog.csdn.net/qq_39706570/article/details/105962373</a></p>
+</li>
+<li><p>已经两点求直线方程（多维空间）：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yaolin1228/p/7871793.html">https://www.cnblogs.com/yaolin1228/p/7871793.html</a></p>
+</li>
+<li><p>PCL生成线段点云：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Dbojuedzw/article/details/126127391">https://blog.csdn.net/Dbojuedzw/article/details/126127391</a></p>
+</li>
+<li><p>【计算几何】多边形点集排序：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dwdxdy/p/3230156.html">https://www.cnblogs.com/dwdxdy/p/3230156.html</a></p>
+</li>
+<li><p>空间点到直线垂足坐标的解算方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouschina/article/details/14647587">https://blog.csdn.net/zhouschina/article/details/14647587</a></p>
+</li>
+<li><p>pcl::compute3DCentroid()计算质心算法原理：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/YunLaowang/article/details/102703768">https://blog.csdn.net/YunLaowang/article/details/102703768</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014072827/article/details/110746985">https://blog.csdn.net/u014072827/article/details/110746985</a></p>
+</li>
+<li><p>PCL：点云赋色 | 自定义点云中任意一点的颜色：<a target="_blank" rel="noopener" href="http://www.taodudu.cc/news/show-3123035.html">http://www.taodudu.cc/news/show-3123035.html</a></p>
+</li>
+<li><p>PCL C++版【学习备忘】：<a target="_blank" rel="noopener" href="https://blog.csdn.net/expert_joe/article/details/123342098">https://blog.csdn.net/expert_joe/article/details/123342098</a></p>
+</li>
+</ol>
+<h2 id="点云入门"><a href="#点云入门" class="headerlink" title="点云入门"></a>点云入门</h2><h3 id="功能示例代码段"><a href="#功能示例代码段" class="headerlink" title="功能示例代码段"></a>功能示例代码段</h3><h4 id="1-pcl-PointCloud数据类型"><a href="#1-pcl-PointCloud数据类型" class="headerlink" title="1. pcl::PointCloud数据类型"></a>1. pcl::PointCloud数据类型</h4><ul>
+<li>点云类型</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 点云指针类型</span>
+pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token operator">::</span>Ptr <span class="token function">cloudPtr</span> <span class="token punctuation">(</span><span class="token keyword">new</span> pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 点云对象</span>
+pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span> cloud<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 单个点云的点</span>
+pcl<span class="token operator">::</span>PointXYZ  point<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>访问形式</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 访问第一个点的x</span>
+cloud<span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+cloudPtr<span class="token operator">-</span><span class="token operator">></span>points<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 访问单个点的x</span>
+point<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-从点云里删除点和添加点"><a href="#2-从点云里删除点和添加点" class="headerlink" title="2. 从点云里删除点和添加点"></a>2. 从点云里删除点和添加点</h4><ul>
+<li>点云增删改查</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/io/pcd_io.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/common/impl/io.hpp></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/point_types.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/point_cloud.h></span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span><span class="token operator">*</span>argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token operator">::</span>Ptr <span class="token function">cloud</span><span class="token punctuation">(</span><span class="token keyword">new</span> pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pcl<span class="token operator">::</span>io<span class="token operator">::</span>loadPCDFile<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">"bun0.pcd"</span><span class="token punctuation">,</span> <span class="token operator">*</span>cloud<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token operator">::</span>iterator index <span class="token operator">=</span> cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 删除点</span>
+    cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">erase</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//删除第一个</span>
+    index <span class="token operator">=</span> cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">erase</span><span class="token punctuation">(</span>cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//删除第5个</span>
+    pcl<span class="token operator">::</span>PointXYZ point <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 添加点</span>
+    <span class="token comment" spellcheck="true">//在索引号为5的位置1上插入一点，原来的点后移一位</span>
+    cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">insert</span><span class="token punctuation">(</span>cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">,</span> point<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cloud<span class="token operator">-</span><span class="token operator">></span><span class="token function">push_back</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从点云最后面插入一点</span>
+    std<span class="token operator">::</span>cout <span class="token operator">&lt;&lt;</span> cloud<span class="token operator">-</span><span class="token operator">></span>points<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出1</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-新建一个点云对象，然后对点云对象进行初始化，并随机赋值"><a href="#3-新建一个点云对象，然后对点云对象进行初始化，并随机赋值" class="headerlink" title="3. 新建一个点云对象，然后对点云对象进行初始化，并随机赋值"></a>3. 新建一个点云对象，然后对点云对象进行初始化，并随机赋值</h4><ul>
+<li>初始化点云</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp">pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span> cloud<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 创建点云</span>
+cloud<span class="token punctuation">.</span>width<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+cloud<span class="token punctuation">.</span>height<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+cloud<span class="token punctuation">.</span>is_dense<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+cloud<span class="token punctuation">.</span>points<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>cloud<span class="token punctuation">.</span>width<span class="token operator">*</span>cloud<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 随机赋值</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>size_t i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>cloud<span class="token punctuation">.</span>points<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">++</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cloud<span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token operator">=</span><span class="token number">1024</span><span class="token operator">*</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>RAND_MAX<span class="token operator">+</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cloud<span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token operator">=</span><span class="token number">1024</span><span class="token operator">*</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>RAND_MAX<span class="token operator">+</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cloud<span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>z<span class="token operator">=</span><span class="token number">1024</span><span class="token operator">*</span><span class="token function">rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span>RAND_MAX<span class="token operator">+</span><span class="token number">1.0f</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 将点云保存为pcd文件</span>
+pcl<span class="token operator">::</span>io<span class="token operator">::</span><span class="token function">savePCDFileASCII</span><span class="token punctuation">(</span><span class="token string">"test_pcd.pcd"</span><span class="token punctuation">,</span>cloud<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-点云可视化基本操作"><a href="#4-点云可视化基本操作" class="headerlink" title="4. 点云可视化基本操作"></a>4. 点云可视化基本操作</h4><ul>
+<li>PCLVisualizer</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 定义一个显示器</span>
+pcl<span class="token operator">::</span>visualization<span class="token operator">::</span>PCLVisualizer <span class="token function">viewer</span><span class="token punctuation">(</span><span class="token string">"registration Viewer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">// 给点云定义一个颜色 RGB模式  为全G 绿色</span>
+pcl<span class="token operator">::</span>visualization<span class="token operator">::</span>PointCloudColorHandlerCustom<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span> <span class="token function">src_h</span><span class="token punctuation">(</span>cloud<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 设置背景颜色  255,255,255就是白色</span>
+viewer<span class="token punctuation">.</span><span class="token function">setBackgroundColor</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token comment" spellcheck="true">// 把点云加入到显示器里</span>
+viewer<span class="token punctuation">.</span><span class="token function">addPointCloud</span><span class="token punctuation">(</span>cloud<span class="token punctuation">,</span> <span class="token string">"source cloud"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>点云视窗类：CloudViewer</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 创建viewer对象</span>
+pcl<span class="token operator">::</span>visualization<span class="token operator">::</span>CloudViewer <span class="token function">viewer</span><span class="token punctuation">(</span><span class="token string">"Cloud Viewer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     
+<span class="token comment" spellcheck="true">// 加载点云</span>
+viewer<span class="token punctuation">.</span><span class="token function">showCloud</span><span class="token punctuation">(</span>cloud<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="5-点的顺时针、逆时针排序"><a href="#5-点的顺时针、逆时针排序" class="headerlink" title="5. 点的顺时针、逆时针排序"></a>5. 点的顺时针、逆时针排序</h4><ul>
+<li>顺时针</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//若点a大于点b,即点a在点b顺时针方向,返回true,否则返回false</span>
+<span class="token keyword">bool</span> <span class="token function">PointCmp</span><span class="token punctuation">(</span><span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ a<span class="token punctuation">,</span> <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ b<span class="token punctuation">,</span> <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ center<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> a<span class="token punctuation">.</span>y <span class="token operator">></span> b<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//向量OA和向量OB的叉积</span>
+    <span class="token keyword">float</span> det <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>det <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>det <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//向量OA和向量OB共线，以距离判断大小</span>
+    <span class="token keyword">float</span> d1 <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> d2 <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> d1 <span class="token operator">></span> d2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//点集合</span>
+<span class="token keyword">void</span> <span class="token function">sortClockwise</span><span class="token punctuation">(</span>pcl<span class="token operator">::</span>PointXYZ vPoints<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//计算重心</span>
+    pcl<span class="token operator">::</span>PointXYZ center<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> z <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        x <span class="token operator">+</span><span class="token operator">=</span> vPoints<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+        y <span class="token operator">+</span><span class="token operator">=</span> vPoints<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        z <span class="token operator">+</span><span class="token operator">=</span> vPoints<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>z<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    center<span class="token punctuation">.</span>x <span class="token operator">=</span> x <span class="token operator">/</span> n<span class="token punctuation">;</span>
+    center<span class="token punctuation">.</span>y <span class="token operator">=</span> y <span class="token operator">/</span> n<span class="token punctuation">;</span>
+    center<span class="token punctuation">.</span>z <span class="token operator">=</span> z <span class="token operator">/</span> n<span class="token punctuation">;</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"center："</span> <span class="token operator">&lt;&lt;</span> center<span class="token punctuation">.</span>x <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> center<span class="token punctuation">.</span>y <span class="token operator">&lt;&lt;</span> <span class="token string">","</span> <span class="token operator">&lt;&lt;</span> center<span class="token punctuation">.</span>z <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//冒泡排序</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">PointCmp</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> vPoints<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> center<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                std<span class="token operator">::</span><span class="token function">swap</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> vPoints<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//return vPoints;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>逆时针、顺时针</li>
+</ul>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/io/pcd_io.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/point_types.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/common/centroid.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/visualization/pcl_visualizer.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;pcl/geometry/planar_polygon.h></span></span><span class="token comment" spellcheck="true">//定义多边形</span>
+
+<span class="token comment" spellcheck="true">// 逆时针排序</span>
+<span class="token keyword">void</span> <span class="token function">CounterClockWiseSortPoints</span><span class="token punctuation">(</span>pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token operator">&amp;</span> vPoints<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token keyword">static_cast</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span>vPoints<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//计算中心</span>
+    Eigen<span class="token operator">::</span>Vector4f centroid<span class="token punctuation">;</span>					<span class="token comment" spellcheck="true">// 质心</span>
+    pcl<span class="token operator">::</span><span class="token function">compute3DCentroid</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">,</span> centroid<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment" spellcheck="true">// 齐次坐标，（c0,c1,c2,1）</span>
+    pcl<span class="token operator">::</span>PointXYZ center<span class="token punctuation">{</span> centroid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>centroid<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">,</span>centroid<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//若点a小于点b,即点a在点b逆时针方向,返回true,否则返回false</span>
+    <span class="token keyword">auto</span> PointCmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ<span class="token operator">&amp;</span> b<span class="token punctuation">,</span> <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ<span class="token operator">&amp;</span> center<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">&lt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>x <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span>y <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//向量OA和向量OB的叉积，向量OA和OB的叉积大于0，则向量OA在向量OB的逆时针方向，即点A小于点B。</span>
+        <span class="token keyword">float</span> det <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>det <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>det <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//向量OA和向量OB共线，以距离判断大小</span>
+        <span class="token keyword">float</span> d1 <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> d2 <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> d1 <span class="token operator">></span> d2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//冒泡排序</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cnt <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> cnt <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">PointCmp</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> vPoints<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> center<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                std<span class="token operator">::</span><span class="token function">swap</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> vPoints<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 顺时针排序</span>
+<span class="token keyword">void</span> <span class="token function">ClockWiseSortPoints</span><span class="token punctuation">(</span>pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token operator">&amp;</span> vPoints<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token keyword">static_cast</span><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">(</span>vPoints<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//计算中心</span>
+    Eigen<span class="token operator">::</span>Vector4f centroid<span class="token punctuation">;</span>					<span class="token comment" spellcheck="true">// 质心</span>
+    pcl<span class="token operator">::</span><span class="token function">compute3DCentroid</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">,</span> centroid<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment" spellcheck="true">// 齐次坐标，（c0,c1,c2,1）</span>
+    pcl<span class="token operator">::</span>PointXYZ center<span class="token punctuation">{</span> centroid<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>centroid<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">,</span>centroid<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//若点a大于点b,即点a在点b顺时针方向,返回true,否则返回false</span>
+    <span class="token keyword">auto</span> PointCmp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ<span class="token operator">&amp;</span> b<span class="token punctuation">,</span> <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ<span class="token operator">&amp;</span> center<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> b<span class="token punctuation">.</span>x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">.</span>y <span class="token operator">></span> b<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//向量OA和向量OB的叉积，向量OA和OB的叉积大于0，则向量OA在向量OB的逆时针方向，即点A小于点B。</span>
+        <span class="token keyword">float</span> det <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>det <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>det <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//向量OA和向量OB共线，以距离判断大小</span>
+        <span class="token keyword">float</span> d1 <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">float</span> d2 <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>x <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>b<span class="token punctuation">.</span>y <span class="token operator">-</span> center<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> d1 <span class="token operator">></span> d2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//冒泡排序</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cnt <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> cnt <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">PointCmp</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> vPoints<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> center<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                std<span class="token operator">::</span><span class="token function">swap</span><span class="token punctuation">(</span>vPoints<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> vPoints<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//--------------------------加载点云数据----------------------------</span>
+    pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token operator">::</span>Ptr <span class="token function">cloud</span><span class="token punctuation">(</span><span class="token keyword">new</span> pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    pcl<span class="token operator">::</span>PCDReader reader<span class="token punctuation">;</span>
+    reader<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token string">"排序.pcd"</span><span class="token punctuation">,</span> <span class="token operator">*</span>cloud<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token operator">::</span>cerr <span class="token operator">&lt;&lt;</span> <span class="token string">"原始点云点的个数: "</span> <span class="token operator">&lt;&lt;</span> cloud<span class="token operator">-</span><span class="token operator">></span>points<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token operator">::</span>endl<span class="token punctuation">;</span>
+    <span class="token function">ClockWiseSortPoints</span><span class="token punctuation">(</span><span class="token operator">*</span>cloud<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//CounterClockWiseSortPoints(*cloud); // 逆时针排序</span>
+    <span class="token comment" spellcheck="true">//增加多边形</span>
+    pcl<span class="token operator">::</span>PlanarPolygon<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span> polygon<span class="token punctuation">;</span>
+    pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span> contour<span class="token punctuation">;</span>
+    contour<span class="token punctuation">.</span>width <span class="token operator">=</span> cloud<span class="token operator">-</span><span class="token operator">></span>width<span class="token punctuation">;</span>
+    contour<span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    contour<span class="token punctuation">.</span>is_dense <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    contour<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>contour<span class="token punctuation">.</span>height <span class="token operator">*</span> contour<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>size_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cloud<span class="token operator">-</span><span class="token operator">></span>points<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"第"</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">"个点的坐标为"</span> <span class="token operator">&lt;&lt;</span> cloud<span class="token operator">-</span><span class="token operator">></span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+        contour<span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> cloud<span class="token operator">-</span><span class="token operator">></span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    polygon<span class="token punctuation">.</span><span class="token function">setContour</span><span class="token punctuation">(</span>contour<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pcl<span class="token operator">::</span>io<span class="token operator">::</span><span class="token function">savePCDFileASCII</span><span class="token punctuation">(</span><span class="token string">"顺时针排列.pcd"</span><span class="token punctuation">,</span> <span class="token operator">*</span>cloud<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pcl<span class="token operator">::</span>visualization<span class="token operator">::</span>PCLVisualizer <span class="token function">viewer</span><span class="token punctuation">(</span><span class="token string">"Viewer"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    viewer<span class="token punctuation">.</span><span class="token function">setWindowName</span><span class="token punctuation">(</span><span class="token string">"平面点云边界点排序"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    viewer<span class="token punctuation">.</span><span class="token function">addPolygon</span><span class="token punctuation">(</span>polygon<span class="token punctuation">,</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">"ploygon"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    viewer<span class="token punctuation">.</span>addPointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZ<span class="token operator">></span><span class="token punctuation">(</span>cloud<span class="token punctuation">,</span> <span class="token string">"sample cloud"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    viewer<span class="token punctuation">.</span><span class="token function">setPointCloudRenderingProperties</span><span class="token punctuation">(</span>pcl<span class="token operator">::</span>visualization<span class="token operator">::</span>PCL_VISUALIZER_POINT_SIZE<span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">"sample cloud"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 设置点云大</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>viewer<span class="token punctuation">.</span><span class="token function">wasStopped</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        viewer<span class="token punctuation">.</span><span class="token function">spinOnce</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="6-点云合并"><a href="#6-点云合并" class="headerlink" title="6. 点云合并"></a>6. 点云合并</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// Objects for storing the point clouds.</span>
+pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token operator">::</span>Ptr <span class="token function">cloudA</span><span class="token punctuation">(</span><span class="token keyword">new</span> pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token operator">::</span>Ptr <span class="token function">cloudB</span><span class="token punctuation">(</span><span class="token keyword">new</span> pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token operator">::</span>Ptr <span class="token function">cloudC</span><span class="token punctuation">(</span><span class="token keyword">new</span> pcl<span class="token operator">::</span>PointCloud<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 读取两个点云文件</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>pcl<span class="token operator">::</span>io<span class="token operator">::</span>loadPLYFile<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\fhlhc\\Desktop\\left.ply"</span><span class="token punctuation">,</span> <span class="token operator">*</span>cloudA<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>pcl<span class="token operator">::</span>io<span class="token operator">::</span>loadPLYFile<span class="token operator">&lt;</span>pcl<span class="token operator">::</span>PointXYZRGBA<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">"C:\\Users\\fhlhc\\Desktop\\right.ply"</span><span class="token punctuation">,</span> <span class="token operator">*</span>cloudB<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Create cloud "C", with the points of both "A" and "B".点云A、B合并生成C</span>
+<span class="token operator">*</span>cloudC <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token operator">*</span>cloudA<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token operator">*</span>cloudB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Now cloudC->points.size() equals cloudA->points.size() + cloudB->points.size().</span>
+
+<span class="token comment" spellcheck="true">//可视化</span>
+pcl<span class="token operator">::</span>visualization<span class="token operator">::</span>PCLVisualizer <span class="token function">viewer</span><span class="token punctuation">(</span><span class="token string">"合并两个点云"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="7-通过某点对空间直线做垂线，求垂足"><a href="#7-通过某点对空间直线做垂线，求垂足" class="headerlink" title="7. 通过某点对空间直线做垂线，求垂足"></a>7. 通过某点对空间直线做垂线，求垂足</h4><pre class="line-numbers language-cpp"><code class="language-cpp">pcl<span class="token operator">::</span>PointXYZ <span class="token function">GetFootOfPerpendicular</span><span class="token punctuation">(</span>
+    <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ pt<span class="token punctuation">,</span>     <span class="token comment" spellcheck="true">// 直线外一点</span>
+    <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ begin<span class="token punctuation">,</span>  <span class="token comment" spellcheck="true">// 直线开始点</span>
+    <span class="token keyword">const</span> pcl<span class="token operator">::</span>PointXYZ end<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">// 直线结束点</span>
+<span class="token punctuation">{</span>
+    pcl<span class="token operator">::</span>PointXYZ retVal<span class="token punctuation">;</span>
+
+    <span class="token keyword">double</span> dx <span class="token operator">=</span> begin<span class="token punctuation">.</span>x <span class="token operator">-</span> end<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> dy <span class="token operator">=</span> begin<span class="token punctuation">.</span>y <span class="token operator">-</span> end<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> dz <span class="token operator">=</span> begin<span class="token punctuation">.</span>z <span class="token operator">-</span> end<span class="token punctuation">.</span>z<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>dx<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.00000001</span> <span class="token operator">&amp;&amp;</span> <span class="token function">abs</span><span class="token punctuation">(</span>dy<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.00000001</span> <span class="token operator">&amp;&amp;</span> <span class="token function">abs</span><span class="token punctuation">(</span>dz<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.00000001</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        retVal <span class="token operator">=</span> begin<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> retVal<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">double</span> u <span class="token operator">=</span> <span class="token punctuation">(</span>pt<span class="token punctuation">.</span>x <span class="token operator">-</span> begin<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>begin<span class="token punctuation">.</span>x <span class="token operator">-</span> end<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>pt<span class="token punctuation">.</span>y <span class="token operator">-</span> begin<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>begin<span class="token punctuation">.</span>y <span class="token operator">-</span> end<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>pt<span class="token punctuation">.</span>z <span class="token operator">-</span> begin<span class="token punctuation">.</span>z<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>begin<span class="token punctuation">.</span>z <span class="token operator">-</span> end<span class="token punctuation">.</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    u <span class="token operator">=</span> u <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>dx <span class="token operator">*</span> dx<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>dy <span class="token operator">*</span> dy<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>dz <span class="token operator">*</span> dz<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    retVal<span class="token punctuation">.</span>x <span class="token operator">=</span> begin<span class="token punctuation">.</span>x <span class="token operator">+</span> u <span class="token operator">*</span> dx<span class="token punctuation">;</span>
+    retVal<span class="token punctuation">.</span>y <span class="token operator">=</span> begin<span class="token punctuation">.</span>y <span class="token operator">+</span> u <span class="token operator">*</span> dy<span class="token punctuation">;</span>
+    retVal<span class="token punctuation">.</span>z <span class="token operator">=</span> begin<span class="token punctuation">.</span>z <span class="token operator">+</span> u <span class="token operator">*</span> dz<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> retVal<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ 
+
+<div class="p-2 pe-4">
+    <span id="busuanzi_container_page_pv" style='display:none'>
+        <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+    </span>
+
+    <br/><br/>
+
+     
+
+
+     
+        <a href="/2023/10/09/projects/%E2%80%9C%E6%84%9F%E7%9F%A5%E7%BA%A2%E8%89%B2%E5%B9%BF%E5%B7%9E%E2%80%9D%E2%80%94%E2%80%94%E5%B9%BF%E5%B7%9E%E5%B8%82%E7%BA%A2%E6%97%85%E6%99%AF%E7%82%B9%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F/" class="btn btn-outline-secondary btn-sm float-end" >
+            <small>
+                下一篇：“感知红色广州”——广州市红旅景点情感分析系统 >
+            </small>
+        </a>
+     
+</div>
+ 
+                </div>
+            </div>
+    
+            <!-- sidebar -->
+            <div class="col-4 position-sticky">
+                <div class="border-start ps-3 pb-3 pt-3">
+    
+        <!-- 侧边栏 分类 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-folder-open"></i> 分类
+        
+    </h6>
+    <div class="card-body">
+        <ul class="list-group border-0">
+            
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/PCL/ ">
+                PCL <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/three-js/ ">
+                three.js <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/esri/ ">
+                esri <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Cesium/ ">
+                Cesium <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/Echarts/ ">
+                Echarts <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/ngnix/ ">
+                ngnix <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/javascript/ ">
+                javascript <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue2/ ">
+                vue2 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+            
+             
+            <a class="list-group-item border-0 pt-0 pb-0 ps-1" href="/categories/vue/ ">
+                vue <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+              
+        </ul>
+
+        <ul class="list-group border-0 collapse" id="category">
+            
+        </ul>
+    </div>
+</div>
+
+ 
+    
+        <!-- 侧边栏 标签 -->
+<div class="card mb-3">
+    <h6 class="card-header tag-hover"><i class="fa fa-tag"></i> 标签
+        
+    </h6>
+
+    <div class="card-body tag-hover">
+        
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%A1%B9%E7%9B%AE/ ">
+                项目 <span class="badge bg-secondary float-end m-1">2</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E9%85%8D%E7%BD%AE/ ">
+                配置 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%AC%94%E8%AE%B0/ ">
+                笔记 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E7%A4%BA%E4%BE%8B/ ">
+                示例 <span class="badge bg-secondary float-end m-1">1</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E6%95%99%E7%A8%8B/ ">
+                教程 <span class="badge bg-secondary float-end m-1">3</span>
+            </a>
+        
+             
+            <a class="text-decoration-none border-0 d-inline-flex link-dark pt-0 pb-0 p-0" href="/tags/%E5%8A%9F%E8%83%BD/ ">
+                功能 <span class="badge bg-secondary float-end m-1">4</span>
+            </a>
+          
+
+        <span id="tags" class="collapse">
+            
+        </span>
+    </div>
+</div>
+ 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-clock-o"></i> 最近文章</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Cesium 功能实现 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Echarts 时间轴监听事件 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> Nginx服务器配置 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> VS2019+PCL+LAS点云学习 </small>
+                </a>
+            
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text">
+                    <small> python PCL LAS Open3D点云 </small>
+                </a>
+            
+            
+            
+            
+            
+            
+            
+             
+        </ul>
+    </div>
+</div> 
+    
+        <div class="card mb-3">
+    <h6 class="card-header"><i class="fa fa-link"></i> 友情链接</h6>
+    <div class="card-body tag-hover">
+        <ul class="list-group border-0">
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://so.csdn.net/ ">
+                    <small>csdn</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://github.com/ ">
+                    <small>GitHub</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>Hexo</small>
+                </a>
+            
+                <a class="list-group-item border-0 pt-0 pb-0 ps-1 fs-6 text" target="_blank" rel="noopener" href="https://hexo.io ">
+                    <small>bilibili</small>
+                </a>
+             
+        </ul>
+    </div>
+</div> 
+    
+
+</div> 
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="bg-dark pt-2 pb-0 mt-5">
+    <div class="container pb-2 pt-2 text-center">
+        <p class="text-muted tag-hover"> © 2023 个人博客 个人网站 
+            <br>
+            <!-- 不蒜子统计 -->
+            <span id="busuanzi_container_site_pv">
+                    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                    本站访客数<span id="busuanzi_value_site_uv"></span>人
+            </span>
+            <a class="link-secondary text-decoration-none" target="_blank" rel="noopener" href="https://beian.miit.gov.cn/#/Integrated/index">
+                 
+            </a>
+        </p>
+    </div>
+</footer> 
+</body>
+
+</html>
