@@ -1,3 +1,6 @@
+.main_con {
+  background-color: #fff;
+}
 .tag-hover > a:hover,
 .tag-hover li > a:hover {
   color: #0a58ca;
@@ -57,4 +60,13 @@ td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: center;
+}
+.bgV {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  object-fit: cover;
 }
